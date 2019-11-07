@@ -2,9 +2,9 @@
 
 namespace EstabelecimentoMRR
 {
-    public partial class Form1 : Form
+    public partial class frm_EstabelecimentoMRR : MaterialSkin.Controls.MaterialForm
     {
-        public Form1()
+        public frm_EstabelecimentoMRR()
         {
             InitializeComponent();
         }
@@ -13,5 +13,6 @@ namespace EstabelecimentoMRR
         {
             string Max = "Sou mulambo";
         }
+
     }
 }
