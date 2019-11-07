@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
 using Dapper;
+using Dapper.Contrib.Extensions;
+using EstabelecimentoMRR.Model;
 using MySql.Data.MySqlClient;
 
 namespace EstabelecimentoMRR.Repository
@@ -22,6 +25,83 @@ namespace EstabelecimentoMRR.Repository
             {
                 MessageBox.Show(x.Message);
                 return 0;
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
+        public IEnumerable<FluxoCaixa> Query(string query)
+        {
+            IDbConnection db = new MySqlConnection(ConfigurationManager.ConnectionStrings["Frota"].ConnectionString);
+            db.Open();
+            try
+            {
+                var obj = db.Query<FluxoCaixa>(query);
+                return obj;
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+                return null;
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
+        public long Insert(FluxoCaixa model)
+        {
+            IDbConnection db = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
+            db.Open();
+            try
+            {
+                return db.Insert(model);
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+                return 0;
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
+        public bool Update(FluxoCaixa model)
+        {
+            IDbConnection db = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
+            db.Open();
+            try
+            {
+                return db.Update(model);
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+                return false;
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
+        public bool Delete(FluxoCaixa model)
+        {
+            IDbConnection db = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
+            db.Open();
+            try
+            {
+                return db.Delete(model);
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+                return false;
             }
             finally
             {
