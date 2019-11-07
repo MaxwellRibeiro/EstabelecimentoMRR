@@ -32,13 +32,13 @@ namespace EstabelecimentoMRR.Repository
             }
         }
 
-        public IEnumerable<FluxoCaixa> Query(string query)
+        public IEnumerable<T> Query<T>(string query)
         {
-            IDbConnection db = new MySqlConnection(ConfigurationManager.ConnectionStrings["Frota"].ConnectionString);
+            IDbConnection db = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
             db.Open();
             try
             {
-                var obj = db.Query<FluxoCaixa>(query);
+                var obj = db.Query<T>(query);
                 return obj;
             }
             catch (Exception x)
