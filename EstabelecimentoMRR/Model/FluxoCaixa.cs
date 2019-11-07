@@ -7,6 +7,7 @@ namespace EstabelecimentoMRR.Model
     public class FluxoCaixa
     {
 
+
         public int Id { get; set; }
         public string Conta { get; set; }
         public int TipoConta { get; set; }
