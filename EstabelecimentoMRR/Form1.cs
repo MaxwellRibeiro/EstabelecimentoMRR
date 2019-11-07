@@ -14,5 +14,10 @@ namespace EstabelecimentoMRR
             string Max = "Sou mulambo";
         }
 
+
+        private void materialLabel1_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
