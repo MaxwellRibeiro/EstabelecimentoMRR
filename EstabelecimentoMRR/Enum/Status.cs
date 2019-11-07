@@ -3,6 +3,6 @@
     public enum Status
     {
         Pendente = 1,
-        Quitado = 2
+        Quitada = 2
     }
 }
