@@ -51,13 +51,13 @@ namespace EstabelecimentoMRR.Repository
             }
         }
 
-        public long Insert<T>(T model) where T : class
+        public int Insert<T>(T model) where T : class
         {
             IDbConnection db = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
             db.Open();
             try
             {
-                return db.Insert(model);
+                return Convert.ToInt32(db.Insert(model));
             }
             catch (Exception x)
             {

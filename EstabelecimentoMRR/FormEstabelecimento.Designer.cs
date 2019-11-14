@@ -1,6 +1,6 @@
 ﻿namespace EstabelecimentoMRR
 {
-    partial class frm_EstabelecimentoMRR
+    partial class FormEstabelecimento
     {
         /// <summary>
         /// Required designer variable.
@@ -299,7 +299,7 @@
             this.Controls.Add(this.tab_select_Contas);
             this.Controls.Add(this.tab_contr_Contas);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frm_EstabelecimentoMRR";
+            this.Name = "FrmEstabelecimentoMrr";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estabelecimento MRR";
             this.Load += new System.EventHandler(this.Form1_Load);

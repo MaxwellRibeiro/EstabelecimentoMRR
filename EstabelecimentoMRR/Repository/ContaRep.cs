@@ -1,15 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using EstabelecimentoMRR.Model;
 
 namespace EstabelecimentoMRR.Repository
 {
     public class ContaRep : RepositorioBase
     {
-        public void Inserir(Conta obj)
+        public List<Conta> BuscarTodas()
         {
             try
             {
-                Inserir(obj);
+                return Query<Conta>("select * from conta").ToList();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public Conta Salvar(Conta obj)
+        {
+            try
+            {
+                obj.Id = Insert(obj);
+                return obj;
             }
             catch (Exception x)
             {
@@ -17,16 +33,18 @@ namespace EstabelecimentoMRR.Repository
             }
         }
 
-        public void Update(Conta obj)
+        public bool Atualizar(Conta obj)
         {
             try
             {
-                Update(obj);
+                return Update(obj);
             }
             catch (Exception x)
             {
                 throw x;
             }
         }
+
+        
     }
 }
