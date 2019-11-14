@@ -4,11 +4,11 @@ using EstabelecimentoMRR.Enum;
 
 namespace EstabelecimentoMRR.Model
 {
-    [Table("fluxocaixa")]
-    public class FluxoCaixa
+    [Table("conta")]
+    public class Conta
     {
         public int Id { get; set; }
-        public string Conta { get; set; }
+        public string Nome { get; set; }
         public TipoConta TipoConta { get; set; }
         public DateTime DataLancamento { get; set; }
         public DateTime DataVencimento { get; set; }

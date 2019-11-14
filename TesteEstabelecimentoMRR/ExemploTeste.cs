@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace EstabelecimentoMRR
+namespace TesteEstabelecimentoMRR
 {
     public class ExemploTeste
     {

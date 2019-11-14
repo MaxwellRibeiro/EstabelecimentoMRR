@@ -5,12 +5,11 @@ using System.Data;
 using System.Windows.Forms;
 using Dapper;
 using Dapper.Contrib.Extensions;
-using EstabelecimentoMRR.Model;
 using MySql.Data.MySqlClient;
 
 namespace EstabelecimentoMRR.Repository
 {
-    public class FluxoCaixaRep
+    public class RepositorioBase
     {
         public int Execute(string sql)
         {
@@ -52,7 +51,7 @@ namespace EstabelecimentoMRR.Repository
             }
         }
 
-        public long Insert(FluxoCaixa model)
+        public long Insert<T>(T model) where T : class
         {
             IDbConnection db = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
             db.Open();
@@ -71,7 +70,7 @@ namespace EstabelecimentoMRR.Repository
             }
         }
 
-        public bool Update(FluxoCaixa model)
+        public bool Update<T>(T model) where T : class
         {
             IDbConnection db = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
             db.Open();
@@ -90,7 +89,7 @@ namespace EstabelecimentoMRR.Repository
             }
         }
 
-        public bool Delete(FluxoCaixa model)
+        public bool Delete<T>(T model) where T : class
         {
             IDbConnection db = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
             db.Open();

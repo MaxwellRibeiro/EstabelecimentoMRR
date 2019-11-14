@@ -12,19 +12,19 @@ namespace EstabelecimentoMRR
         {
             InitializeComponent();
         }
-        private FluxoCaixa fluxocaixa;
-        FluxoCaixaRep rep;
+        private Conta fluxocaixa;
+        ContaRep rep;
         private void Form1_Load(object sender, System.EventArgs e)
         {
-            fluxocaixa = new FluxoCaixa();
-            rep = new FluxoCaixaRep();
+            fluxocaixa = new Conta();
+            rep = new ContaRep();
         }
 
 
 
         private void btn_Cadastrar_Click(object sender, System.EventArgs e)
         {
-            fluxocaixa.Conta = txt_Nome_Conta.Text;
+            fluxocaixa.Nome = txt_Nome_Conta.Text;
             fluxocaixa.DataLancamento = DateTime.Now;
             fluxocaixa.DataVencimento = dtp_Data.Value;
             fluxocaixa.Valor = decimal.Parse(txt_Valor.Text);
@@ -42,7 +42,7 @@ namespace EstabelecimentoMRR
 
         private void btn_consultar_Click(object sender, EventArgs e)
         {
-            var x = rep.Query<FluxoCaixa>("select * from fluxocaixa").ToList();
+            var x = rep.Query<Conta>("select * from fluxocaixa").ToList();
         }
     }
 }
