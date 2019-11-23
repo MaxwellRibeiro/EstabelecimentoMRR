@@ -56,12 +56,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClasseTeste\ContaTeste.cs" />
+    <Compile Include="ClassData_Theory\CalculoValorAPagarAtradadoData.cs" />
+    <Compile Include="Classe\ContaTeste.cs" />
+    <Compile Include="DadosParaTeste\DadosConta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EstabelecimentoMRR\EstabelecimentoMRR.csproj">
+      <Project>{EC8237A0-8E78-46A4-918B-8BC112D84FE0}</Project>
+      <Name>EstabelecimentoMRR</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -27,7 +27,7 @@ namespace EstabelecimentoMRR.BusinessLogic
             return saldo;
         }
 
-        public static decimal GastoMedio(List<Conta> contas)
+        public static decimal CalcularGastoMedioQuitado(List<Conta> contas)
         {
             decimal mediaGasto = 0;
 
@@ -44,7 +44,7 @@ namespace EstabelecimentoMRR.BusinessLogic
             return mediaGasto;
         }
 
-        public static decimal ValorAPagarAtradado(DateTime data, List<Conta> contas)
+        public static decimal CalcularValorAPagarAtradado(DateTime data, List<Conta> contas)
         {
             decimal totalValorAPagarAtradado = 0;
             foreach (var conta in contas)
@@ -60,12 +60,12 @@ namespace EstabelecimentoMRR.BusinessLogic
             return totalValorAPagarAtradado;
         }
 
-        public static decimal ValorAReceber(List<Conta> contas)
+        public static decimal CalcularValorAReceber(List<Conta> contas)
         {
             return contas.Where(c => c.TipoConta == TipoConta.Receita && c.Status == Status.Pendente).Sum(s=> s.Valor);
         }
 
-        public static decimal ValorAPagar(List<Conta> contas)
+        public static decimal CalcularValorAPagar(List<Conta> contas)
         {
             return contas.Where(c => c.TipoConta == TipoConta.Dispesa && c.Status == Status.Pendente).Sum(s => s.Valor);
         }
