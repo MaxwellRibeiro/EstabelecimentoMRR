@@ -1,8 +1,8 @@
 ﻿using Xunit;
 
-namespace TesteEstabelecimentoMRR
+namespace TesteEstabelecimentoMRR.ClasseTeste
 {
-    public class ExemploTeste
+    public class ContaTeste
     {
         [Fact]
         public void PassingTest()

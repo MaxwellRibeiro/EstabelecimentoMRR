@@ -104,7 +104,6 @@
       <DependentUpon>FormEstabelecimento.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Conta.cs" />
-    <Compile Include="Model\Quitado.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ContaRep.cs" />
