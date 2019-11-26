@@ -125,7 +125,9 @@
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.txtEmail);
+            this.MaximizeBox = false;
             this.Name = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

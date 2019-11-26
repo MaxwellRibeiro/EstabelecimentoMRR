@@ -1,4 +1,5 @@
-﻿using EstabelecimentoMRR.UI.Principal;
+﻿using System.Windows.Forms;
+using EstabelecimentoMRR.Repository;
 using EstabelecimentoMRR.UI.Usuario;
 using MaterialSkin;
 using MaterialSkin.Controls;
@@ -39,9 +40,18 @@ namespace EstabelecimentoMRR.UI.Login
 
         private void btnLogin_Click(object sender, System.EventArgs e)
         {
-            var frm = new FormPrincipal();
-            frm.ShowDialog();
-            frm.Dispose();
+            var rep = new UsuarioRep();
+            var acessoPermitido = rep.Login(txtEmail.Text, txtSenha.Text);
+            if (acessoPermitido)
+            {
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+            else
+            {
+                MessageBox.Show(@"Acesso negado");
+            }
+           
         }
     }
 }

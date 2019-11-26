@@ -100,6 +100,7 @@
     <Compile Include="Enum\Status.cs" />
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Repository\ContaRep.cs" />
+    <Compile Include="Repository\UsuarioRep.cs" />
     <Compile Include="UI\Usuario\FormCadastroUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
