@@ -27,5 +27,21 @@ namespace EstabelecimentoMRR.Repository
 
             return acesso;
         }
+
+        public bool Inserir(Usuario usuario)
+        {
+            var sql = "insert into usuario(Nome, Email, Senha) " + "values('" + usuario.Nome + "', '" + usuario.Email + "', '" + usuario.Senha + "'); SELECT LAST_INSERT_ID();";
+
+            MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(sql, con);
+            con.Open();
+
+            usuario.Id = command.ExecuteScalar().GetHashCode();
+
+            con.Dispose();
+            con.Close();
+
+            return usuario.Id > 0;
+        }
     }
 }
