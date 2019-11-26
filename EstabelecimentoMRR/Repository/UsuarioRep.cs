@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using EstabelecimentoMRR.Model;
 using MySql.Data.MySqlClient;
 
@@ -36,7 +37,7 @@ namespace EstabelecimentoMRR.Repository
             MySqlCommand command = new MySqlCommand(sql, con);
             con.Open();
 
-            usuario.Id = command.ExecuteScalar().GetHashCode();
+            usuario.Id = Convert.ToInt32(command.ExecuteScalar());
 
             con.Dispose();
             con.Close();
