@@ -29,14 +29,14 @@ namespace EstabelecimentoMRR
             _fluxocaixa.Status = chk_Status.Checked ? Enum.Status.Quitada: Enum.Status.Pendente;
             _fluxocaixa.Descricao = txt_Descricao.Text;
             
-            _rep.Insert(_fluxocaixa);
+            //_rep.Insert(_fluxocaixa);
         }
 
 
 
         private void btn_consultar_Click(object sender, EventArgs e)
         {
-            var x = _rep.BuscarTodas();
+            //var x = _rep.BuscarTodas();
         }
     }
 }
