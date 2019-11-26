@@ -98,7 +98,20 @@
     <Compile Include="BusinessLogic\ContaLogic.cs" />
     <Compile Include="Enum\TipoConta.cs" />
     <Compile Include="Enum\Status.cs" />
+    <Compile Include="Model\Usuario.cs" />
     <Compile Include="Repository\ContaRep.cs" />
+    <Compile Include="UI\Usuario\FormCadastroUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Usuario\FormCadastroUsuario.Designer.cs">
+      <DependentUpon>FormCadastroUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Login\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Login\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\renee\FormEstabelecimento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +147,12 @@
     <Compile Include="UI\renee\FormReceitaCadastro.Designer.cs">
       <DependentUpon>FormReceitaCadastro.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Usuario\FormCadastroUsuario.resx">
+      <DependentUpon>FormCadastroUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Login\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Principal\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +173,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UI\renee\FormReceitaCadastro.resx">
       <DependentUpon>FormReceitaCadastro.cs</DependentUpon>
@@ -185,7 +205,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UI\Login\" />
+    <None Include="Resources\login.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

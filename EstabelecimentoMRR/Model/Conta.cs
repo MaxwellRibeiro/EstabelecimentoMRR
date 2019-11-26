@@ -4,7 +4,6 @@ using EstabelecimentoMRR.Enum;
 
 namespace EstabelecimentoMRR.Model
 {
-    [Table("conta")]
     public class Conta
     {
         public int Id { get; set; }

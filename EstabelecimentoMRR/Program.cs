@@ -1,6 +1,7 @@
 ﻿using EstabelecimentoMRR.UI.Principal;
 using System;
 using System.Windows.Forms;
+using EstabelecimentoMRR.UI.Login;
 
 namespace EstabelecimentoMRR
 {
@@ -14,7 +15,7 @@ namespace EstabelecimentoMRR
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPrincipal());
+            Application.Run(new FormLogin());
         }
     }
 }
