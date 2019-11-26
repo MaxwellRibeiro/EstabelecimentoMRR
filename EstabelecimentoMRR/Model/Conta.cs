@@ -8,6 +8,7 @@ namespace EstabelecimentoMRR.Model
     public class Conta
     {
         public int Id { get; set; }
+        public int IdUsuario { get; set; }
         public string Nome { get; set; }
         public TipoConta TipoConta { get; set; }
         public DateTime DataLancamento { get; set; }

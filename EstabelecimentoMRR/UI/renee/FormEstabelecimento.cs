@@ -7,7 +7,7 @@ namespace EstabelecimentoMRR
     public partial class FormEstabelecimento : MaterialSkin.Controls.MaterialForm
     {
         private Conta _fluxocaixa;
-        private ContaRep _rep;
+        private GeralRep _rep;
 
         public FormEstabelecimento()
         {
@@ -17,7 +17,7 @@ namespace EstabelecimentoMRR
         private void Form1_Load(object sender, System.EventArgs e)
         {
             _fluxocaixa = new Conta();
-            _rep = new ContaRep();
+            _rep = new GeralRep();
         }
         
         private void btn_Cadastrar_Click(object sender, System.EventArgs e)
