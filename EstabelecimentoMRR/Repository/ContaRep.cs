@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 using EstabelecimentoMRR.Model;
 using MySql.Data.MySqlClient;
-
+using EstabelecimentoMRR.Enum;
 
 namespace EstabelecimentoMRR.Repository
 {
@@ -50,7 +50,7 @@ namespace EstabelecimentoMRR.Repository
         {
             List<Conta> contas = new List<Conta>();
 
-            var sql = "select Id, Nome from conta";
+            var sql = "select * from conta";
 
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
             MySqlCommand command = new MySqlCommand(sql, con);
@@ -60,12 +60,33 @@ namespace EstabelecimentoMRR.Repository
 
             while (reader.Read())
             {
+                var conta = reader.GetInt32(reader.GetOrdinal("TipoConta"));
+                var status = reader.GetInt32(reader.GetOrdinal("Status"));
+                TipoConta paramTipo;
+                if (conta == 1)
+                    paramTipo = TipoConta.Dispesa;
+                else if (conta == 2)
+                    paramTipo = TipoConta.Receita;
+                else
+                    throw new Exception("Erro");
+
+                Status paramStatus;
+                if (status == 1)
+                    paramStatus = Status.Pendente;
+                else if (status == 2)
+                    paramStatus = Status.Quitada;
+                else
+                    paramStatus = Status.Recebido;
                 contas.Add(new Conta()
                 {
                     Id = reader.GetInt32(reader.GetOrdinal("Id")),
                     Nome = reader.GetString(reader.GetOrdinal("Nome")),
-
-
+                    TipoConta = paramTipo,
+                    DataLancamento = reader.GetDateTime(reader.GetOrdinal("DataLancamento")),
+                    DataVencimento = reader.GetDateTime(reader.GetOrdinal("DataVencimento")),
+                    Valor = reader.GetDecimal(reader.GetOrdinal("Valor")),
+                    Status = paramStatus,
+                    Descricao = reader.GetString(reader.GetOrdinal("Descricao"))
                 });
             }
             con.Dispose();
