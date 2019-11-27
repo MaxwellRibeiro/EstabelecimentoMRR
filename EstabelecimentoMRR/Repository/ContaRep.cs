@@ -63,7 +63,7 @@ namespace EstabelecimentoMRR.Repository
                 contas.Add(new Conta()
                 {
                     Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                    Nome = reader.GetString(reader.GetOrdinal("Nome"))
+                    Nome = reader.GetString(reader.GetOrdinal("Nome")),
 
 
                 });

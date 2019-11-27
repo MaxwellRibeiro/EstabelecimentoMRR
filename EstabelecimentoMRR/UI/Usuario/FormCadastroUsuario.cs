@@ -6,7 +6,6 @@ namespace EstabelecimentoMRR.UI.Usuario
 {
     public partial class FormCadastroUsuario : MaterialSkin.Controls.MaterialForm
     {
-
         public FormCadastroUsuario()
         {
             InitializeComponent();

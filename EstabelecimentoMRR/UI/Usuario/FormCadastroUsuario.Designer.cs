@@ -53,7 +53,7 @@
             this.txtSenha.SelectionLength = 0;
             this.txtSenha.SelectionStart = 0;
             this.txtSenha.Size = new System.Drawing.Size(413, 23);
-            this.txtSenha.TabIndex = 38;
+            this.txtSenha.TabIndex = 3;
             this.txtSenha.UseSystemPasswordChar = false;
             // 
             // materialLabel2
@@ -89,7 +89,7 @@
             this.txtEmail.SelectionLength = 0;
             this.txtEmail.SelectionStart = 0;
             this.txtEmail.Size = new System.Drawing.Size(413, 23);
-            this.txtEmail.TabIndex = 36;
+            this.txtEmail.TabIndex = 2;
             this.txtEmail.UseSystemPasswordChar = false;
             // 
             // materialLabel1
@@ -125,7 +125,7 @@
             this.txtNome.SelectionLength = 0;
             this.txtNome.SelectionStart = 0;
             this.txtNome.Size = new System.Drawing.Size(413, 23);
-            this.txtNome.TabIndex = 32;
+            this.txtNome.TabIndex = 1;
             this.txtNome.UseSystemPasswordChar = false;
             // 
             // lbl_Nome_Conta
@@ -155,7 +155,7 @@
             this.btn_Cadastrar.Name = "btn_Cadastrar";
             this.btn_Cadastrar.Primary = true;
             this.btn_Cadastrar.Size = new System.Drawing.Size(197, 27);
-            this.btn_Cadastrar.TabIndex = 41;
+            this.btn_Cadastrar.TabIndex = 4;
             this.btn_Cadastrar.Text = "Cadastrar";
             this.btn_Cadastrar.UseVisualStyleBackColor = true;
             this.btn_Cadastrar.Click += new System.EventHandler(this.btn_Cadastrar_Click_1);

@@ -1,22 +1,23 @@
-﻿using EstabelecimentoMRR.UI.Despesa;
-using EstabelecimentoMRR.UI.renee;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using EstabelecimentoMRR.Enum;
+using EstabelecimentoMRR.Model;
+using EstabelecimentoMRR.Repository;
 
 namespace EstabelecimentoMRR.UI.Principal
 {
-    public partial class FormPrincipal : Form
+    public partial class FormPrincipal : MaterialSkin.Controls.MaterialForm
     {
         public FormPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void FormPrincipal_Load(object sender, System.EventArgs e)
+        {
+            ContaRep rep = new ContaRep();
+            var contas = rep.Select_All();
+            lblValorAPagar.Text = contas.Where(c => c.TipoConta == TipoConta.Dispesa && c.Status == Status.Pendente).Sum(s=> s.Valor).ToString();
         }
     }
 }
