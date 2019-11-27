@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace EstabelecimentoMRR.UI.Despesa
 {
-    public partial class frm_cadastro_despesa : MaterialSkin.Controls.MaterialForm
+    public partial class FormDespesaCadastro : MaterialSkin.Controls.MaterialForm
     {
 
         private Conta _fluxocaixa;
         private ContaRep _rep;
         private List<Conta> contas = new List<Conta>();
 
-        public frm_cadastro_despesa()
+        public FormDespesaCadastro()
         {
             InitializeComponent();
         }
@@ -43,6 +43,18 @@ namespace EstabelecimentoMRR.UI.Despesa
             _fluxocaixa.IdUsuario = 1;
 
             contas = _rep.Insert(_fluxocaixa);
+            limpa_Campos();
+            _fluxocaixa = new Conta();
+            _rep = new ContaRep();
+        }
+
+        private void limpa_Campos()
+        {
+            txt_Nome_Conta.Clear();                     
+            dtp_Data.Value = DateTime.Now;
+            txt_Valor.Clear();
+            chk_Status.Checked = false;
+            txt_Descricao.Clear();            
         }
     }
 }

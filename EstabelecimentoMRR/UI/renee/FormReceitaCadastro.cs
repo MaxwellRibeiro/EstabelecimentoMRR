@@ -43,6 +43,20 @@ namespace EstabelecimentoMRR.UI.renee
             _fluxocaixa.IdUsuario = 1;
 
             contas = _rep.Insert(_fluxocaixa);
+            if (contas != null)
+            {
+
+            }
+            limpa_Campos();
+        }
+
+        private void limpa_Campos()
+        {
+            txt_Nome_Conta.Clear();
+            dtp_Data.Value = DateTime.Now;
+            txt_Valor.Clear();
+            chk_Status.Checked = false;
+            txt_Descricao.Clear();
         }
     }
 }

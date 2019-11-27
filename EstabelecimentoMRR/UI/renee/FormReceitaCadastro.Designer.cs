@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_consultar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dtp_Data = new System.Windows.Forms.DateTimePicker();
             this.lbl_Status = new MaterialSkin.Controls.MaterialLabel();
             this.chk_Status = new MaterialSkin.Controls.MaterialCheckBox();
@@ -42,27 +41,12 @@
             this.btn_Cadastrar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
-            // btn_consultar
-            // 
-            this.btn_consultar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_consultar.Depth = 0;
-            this.btn_consultar.Location = new System.Drawing.Point(597, 535);
-            this.btn_consultar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btn_consultar.Name = "btn_consultar";
-            this.btn_consultar.Primary = true;
-            this.btn_consultar.Size = new System.Drawing.Size(277, 44);
-            this.btn_consultar.TabIndex = 50;
-            this.btn_consultar.Text = "Consultar";
-            this.btn_consultar.UseVisualStyleBackColor = true;
-            // 
             // dtp_Data
             // 
             this.dtp_Data.Location = new System.Drawing.Point(406, 232);
             this.dtp_Data.Name = "dtp_Data";
             this.dtp_Data.Size = new System.Drawing.Size(200, 22);
-            this.dtp_Data.TabIndex = 49;
+            this.dtp_Data.TabIndex = 2;
             // 
             // lbl_Status
             // 
@@ -92,7 +76,7 @@
             this.chk_Status.Name = "chk_Status";
             this.chk_Status.Ripple = true;
             this.chk_Status.Size = new System.Drawing.Size(103, 30);
-            this.chk_Status.TabIndex = 44;
+            this.chk_Status.TabIndex = 4;
             this.chk_Status.Text = "Recebido";
             this.chk_Status.UseVisualStyleBackColor = true;
             // 
@@ -111,7 +95,7 @@
             this.txt_Descricao.SelectionLength = 0;
             this.txt_Descricao.SelectionStart = 0;
             this.txt_Descricao.Size = new System.Drawing.Size(471, 28);
-            this.txt_Descricao.TabIndex = 45;
+            this.txt_Descricao.TabIndex = 5;
             this.txt_Descricao.UseSystemPasswordChar = false;
             // 
             // lbl_Descricao
@@ -145,7 +129,7 @@
             this.txt_Valor.SelectionLength = 0;
             this.txt_Valor.SelectionStart = 0;
             this.txt_Valor.Size = new System.Drawing.Size(471, 28);
-            this.txt_Valor.TabIndex = 42;
+            this.txt_Valor.TabIndex = 3;
             this.txt_Valor.UseSystemPasswordChar = false;
             // 
             // lbl_Valor
@@ -195,7 +179,7 @@
             this.txt_Nome_Conta.SelectionLength = 0;
             this.txt_Nome_Conta.SelectionStart = 0;
             this.txt_Nome_Conta.Size = new System.Drawing.Size(471, 28);
-            this.txt_Nome_Conta.TabIndex = 40;
+            this.txt_Nome_Conta.TabIndex = 1;
             this.txt_Nome_Conta.UseSystemPasswordChar = false;
             // 
             // lbl_Nome_Conta
@@ -220,12 +204,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Cadastrar.Depth = 0;
-            this.btn_Cadastrar.Location = new System.Drawing.Point(287, 535);
+            this.btn_Cadastrar.Location = new System.Drawing.Point(406, 551);
             this.btn_Cadastrar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_Cadastrar.Name = "btn_Cadastrar";
             this.btn_Cadastrar.Primary = true;
             this.btn_Cadastrar.Size = new System.Drawing.Size(277, 44);
-            this.btn_Cadastrar.TabIndex = 39;
+            this.btn_Cadastrar.TabIndex = 6;
             this.btn_Cadastrar.Text = "Cadastrar";
             this.btn_Cadastrar.UseVisualStyleBackColor = true;
             this.btn_Cadastrar.Click += new System.EventHandler(this.btn_Cadastrar_Click);
@@ -236,7 +220,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1113, 720);
-            this.Controls.Add(this.btn_consultar);
             this.Controls.Add(this.dtp_Data);
             this.Controls.Add(this.lbl_Status);
             this.Controls.Add(this.chk_Status);
@@ -257,8 +240,6 @@
         }
 
         #endregion
-
-        private MaterialSkin.Controls.MaterialRaisedButton btn_consultar;
         private System.Windows.Forms.DateTimePicker dtp_Data;
         private MaterialSkin.Controls.MaterialLabel lbl_Status;
         private MaterialSkin.Controls.MaterialCheckBox chk_Status;

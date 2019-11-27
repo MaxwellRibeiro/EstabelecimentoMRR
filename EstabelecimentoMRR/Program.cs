@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using EstabelecimentoMRR.UI.Login;
+using EstabelecimentoMRR.UI.Despesa;
 
 namespace EstabelecimentoMRR
 {
@@ -21,7 +22,7 @@ namespace EstabelecimentoMRR
 
             if (formLogin.DialogResult == DialogResult.OK)
             {
-                Application.Run(new FormPrincipal());
+                Application.Run(new FormDespesaCadastro());
             }
         }
     }
