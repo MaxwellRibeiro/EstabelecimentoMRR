@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using EstabelecimentoMRR.Enum;
 using EstabelecimentoMRR.Model;
 using MySql.Data.MySqlClient;
 
@@ -27,10 +28,33 @@ namespace EstabelecimentoMRR.Repository
 
             while (reader.Read())
             {
+                var c = reader.GetInt32(reader.GetOrdinal("TipoConta"));
+                var s = reader.GetInt32(reader.GetOrdinal("Status"));
+                TipoConta e;
+                if (c == 1)               
+                    e = TipoConta.Dispesa;                
+                else if (c == 2)                
+                    e = TipoConta.Receita;                
+                else
+                    throw new Exception("Erro");
+
+                Status x;
+                if (s == 1)                
+                    x = Status.Pendente;                
+                else if (c == 2)                
+                    x = Status.Quitada;                
+                else
+                    x = Status.Recebido;
                 contas.Add(new Conta()
                 {
                     Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                    Nome = reader.GetString(reader.GetOrdinal("Nome"))
+                    Nome = reader.GetString(reader.GetOrdinal("Nome")),
+                    TipoConta = e,
+                    DataLancamento = reader.GetDateTime(reader.GetOrdinal("DataLancamento")),
+                    DataVencimento = reader.GetDateTime(reader.GetOrdinal("DataVencimento")),
+                    Valor = reader.GetDecimal(reader.GetOrdinal("Valor")),
+                    Status = x,
+                    Descricao = reader.GetString(reader.GetOrdinal("Descricao"))
                 });
 
             }

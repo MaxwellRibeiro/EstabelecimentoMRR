@@ -1,6 +1,6 @@
 ﻿namespace EstabelecimentoMRR.UI.Despesa
 {
-    partial class frm_cadastro_despesa
+    partial class FormDespesaCadastro
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_consultar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dtp_Data = new System.Windows.Forms.DateTimePicker();
             this.lbl_Status = new MaterialSkin.Controls.MaterialLabel();
             this.chk_Status = new MaterialSkin.Controls.MaterialCheckBox();
@@ -42,38 +41,23 @@
             this.btn_Cadastrar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
-            // btn_consultar
-            // 
-            this.btn_consultar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_consultar.Depth = 0;
-            this.btn_consultar.Location = new System.Drawing.Point(547, 524);
-            this.btn_consultar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btn_consultar.Name = "btn_consultar";
-            this.btn_consultar.Primary = true;
-            this.btn_consultar.Size = new System.Drawing.Size(277, 44);
-            this.btn_consultar.TabIndex = 26;
-            this.btn_consultar.Text = "Consultar";
-            this.btn_consultar.UseVisualStyleBackColor = true;
-            // 
             // dtp_Data
             // 
-            this.dtp_Data.Location = new System.Drawing.Point(356, 221);
+            this.dtp_Data.Location = new System.Drawing.Point(382, 244);
             this.dtp_Data.Name = "dtp_Data";
             this.dtp_Data.Size = new System.Drawing.Size(200, 22);
-            this.dtp_Data.TabIndex = 25;
+            this.dtp_Data.TabIndex = 2;
             // 
             // lbl_Status
             // 
-            this.lbl_Status.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.lbl_Status.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Status.AutoSize = true;
             this.lbl_Status.Depth = 0;
             this.lbl_Status.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Status.Location = new System.Drawing.Point(268, 357);
+            this.lbl_Status.Location = new System.Drawing.Point(294, 380);
             this.lbl_Status.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Status.Name = "lbl_Status";
             this.lbl_Status.Size = new System.Drawing.Size(68, 24);
@@ -85,25 +69,25 @@
             this.chk_Status.AutoSize = true;
             this.chk_Status.Depth = 0;
             this.chk_Status.Font = new System.Drawing.Font("Roboto", 10F);
-            this.chk_Status.Location = new System.Drawing.Point(356, 357);
+            this.chk_Status.Location = new System.Drawing.Point(382, 380);
             this.chk_Status.Margin = new System.Windows.Forms.Padding(0);
             this.chk_Status.MouseLocation = new System.Drawing.Point(-1, -1);
             this.chk_Status.MouseState = MaterialSkin.MouseState.HOVER;
             this.chk_Status.Name = "chk_Status";
             this.chk_Status.Ripple = true;
             this.chk_Status.Size = new System.Drawing.Size(91, 30);
-            this.chk_Status.TabIndex = 20;
+            this.chk_Status.TabIndex = 4;
             this.chk_Status.Text = "Quitada";
             this.chk_Status.UseVisualStyleBackColor = true;
             // 
             // txt_Descricao
             // 
-            this.txt_Descricao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_Descricao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_Descricao.Depth = 0;
             this.txt_Descricao.Hint = "";
-            this.txt_Descricao.Location = new System.Drawing.Point(356, 421);
+            this.txt_Descricao.Location = new System.Drawing.Point(382, 444);
             this.txt_Descricao.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_Descricao.Name = "txt_Descricao";
             this.txt_Descricao.PasswordChar = '\0';
@@ -111,19 +95,19 @@
             this.txt_Descricao.SelectionLength = 0;
             this.txt_Descricao.SelectionStart = 0;
             this.txt_Descricao.Size = new System.Drawing.Size(471, 28);
-            this.txt_Descricao.TabIndex = 21;
+            this.txt_Descricao.TabIndex = 5;
             this.txt_Descricao.UseSystemPasswordChar = false;
             // 
             // lbl_Descricao
             // 
-            this.lbl_Descricao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.lbl_Descricao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Descricao.AutoSize = true;
             this.lbl_Descricao.Depth = 0;
             this.lbl_Descricao.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Descricao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Descricao.Location = new System.Drawing.Point(233, 421);
+            this.lbl_Descricao.Location = new System.Drawing.Point(259, 444);
             this.lbl_Descricao.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Descricao.Name = "lbl_Descricao";
             this.lbl_Descricao.Size = new System.Drawing.Size(94, 24);
@@ -132,12 +116,12 @@
             // 
             // txt_Valor
             // 
-            this.txt_Valor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_Valor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_Valor.Depth = 0;
             this.txt_Valor.Hint = "";
-            this.txt_Valor.Location = new System.Drawing.Point(356, 283);
+            this.txt_Valor.Location = new System.Drawing.Point(382, 306);
             this.txt_Valor.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_Valor.Name = "txt_Valor";
             this.txt_Valor.PasswordChar = '\0';
@@ -145,19 +129,19 @@
             this.txt_Valor.SelectionLength = 0;
             this.txt_Valor.SelectionStart = 0;
             this.txt_Valor.Size = new System.Drawing.Size(471, 28);
-            this.txt_Valor.TabIndex = 18;
+            this.txt_Valor.TabIndex = 3;
             this.txt_Valor.UseSystemPasswordChar = false;
             // 
             // lbl_Valor
             // 
-            this.lbl_Valor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.lbl_Valor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Valor.AutoSize = true;
             this.lbl_Valor.Depth = 0;
             this.lbl_Valor.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Valor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Valor.Location = new System.Drawing.Point(268, 283);
+            this.lbl_Valor.Location = new System.Drawing.Point(294, 306);
             this.lbl_Valor.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Valor.Name = "lbl_Valor";
             this.lbl_Valor.Size = new System.Drawing.Size(59, 24);
@@ -166,14 +150,14 @@
             // 
             // lbl_Data
             // 
-            this.lbl_Data.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.lbl_Data.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Data.AutoSize = true;
             this.lbl_Data.Depth = 0;
             this.lbl_Data.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Data.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Data.Location = new System.Drawing.Point(168, 221);
+            this.lbl_Data.Location = new System.Drawing.Point(194, 244);
             this.lbl_Data.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Data.Name = "lbl_Data";
             this.lbl_Data.Size = new System.Drawing.Size(159, 24);
@@ -182,12 +166,12 @@
             // 
             // txt_Nome_Conta
             // 
-            this.txt_Nome_Conta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_Nome_Conta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_Nome_Conta.Depth = 0;
             this.txt_Nome_Conta.Hint = "";
-            this.txt_Nome_Conta.Location = new System.Drawing.Point(356, 153);
+            this.txt_Nome_Conta.Location = new System.Drawing.Point(382, 176);
             this.txt_Nome_Conta.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_Nome_Conta.Name = "txt_Nome_Conta";
             this.txt_Nome_Conta.PasswordChar = '\0';
@@ -195,19 +179,19 @@
             this.txt_Nome_Conta.SelectionLength = 0;
             this.txt_Nome_Conta.SelectionStart = 0;
             this.txt_Nome_Conta.Size = new System.Drawing.Size(471, 28);
-            this.txt_Nome_Conta.TabIndex = 16;
+            this.txt_Nome_Conta.TabIndex = 1;
             this.txt_Nome_Conta.UseSystemPasswordChar = false;
             // 
             // lbl_Nome_Conta
             // 
-            this.lbl_Nome_Conta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.lbl_Nome_Conta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Nome_Conta.AutoSize = true;
             this.lbl_Nome_Conta.Depth = 0;
             this.lbl_Nome_Conta.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Nome_Conta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Nome_Conta.Location = new System.Drawing.Point(180, 153);
+            this.lbl_Nome_Conta.Location = new System.Drawing.Point(206, 176);
             this.lbl_Nome_Conta.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Nome_Conta.Name = "lbl_Nome_Conta";
             this.lbl_Nome_Conta.Size = new System.Drawing.Size(147, 24);
@@ -216,16 +200,16 @@
             // 
             // btn_Cadastrar
             // 
-            this.btn_Cadastrar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.btn_Cadastrar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Cadastrar.Depth = 0;
-            this.btn_Cadastrar.Location = new System.Drawing.Point(237, 524);
+            this.btn_Cadastrar.Location = new System.Drawing.Point(395, 551);
             this.btn_Cadastrar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_Cadastrar.Name = "btn_Cadastrar";
             this.btn_Cadastrar.Primary = true;
             this.btn_Cadastrar.Size = new System.Drawing.Size(277, 44);
-            this.btn_Cadastrar.TabIndex = 15;
+            this.btn_Cadastrar.TabIndex = 6;
             this.btn_Cadastrar.Text = "Cadastrar";
             this.btn_Cadastrar.UseVisualStyleBackColor = true;
             this.btn_Cadastrar.Click += new System.EventHandler(this.btn_Cadastrar_Click);
@@ -236,7 +220,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1083, 675);
-            this.Controls.Add(this.btn_consultar);
             this.Controls.Add(this.dtp_Data);
             this.Controls.Add(this.lbl_Status);
             this.Controls.Add(this.chk_Status);
@@ -257,8 +240,6 @@
         }
 
         #endregion
-
-        private MaterialSkin.Controls.MaterialRaisedButton btn_consultar;
         private System.Windows.Forms.DateTimePicker dtp_Data;
         private MaterialSkin.Controls.MaterialLabel lbl_Status;
         private MaterialSkin.Controls.MaterialCheckBox chk_Status;
