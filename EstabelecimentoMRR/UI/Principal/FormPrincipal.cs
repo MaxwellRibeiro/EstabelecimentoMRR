@@ -31,11 +31,20 @@ namespace EstabelecimentoMRR.UI.Principal
 
             foreach (DataGridViewRow row in gridPrincipal.Rows)
             {
+                var data = (Conta)row.DataBoundItem;
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    if (cell.OwningColumn.Name == "Img")
+                    if (cell.OwningColumn.Name == "Situacao")
                     {
-                        cell.Value = imageList1.Images[0];
+                        cell.Value = data.Status == Status.Pendente ? ImageList.Images[0] : ImageList.Images[1];
+                    }
+                    if (cell.OwningColumn.Name == "Alterar")
+                    {
+                        cell.Value = ImageList.Images[2];
+                    }
+                    if (cell.OwningColumn.Name == "Excluir")
+                    {
+                        cell.Value = ImageList.Images[3];
                     }
                 }
             }

@@ -36,8 +36,8 @@
             this.lblGastoMedio = new System.Windows.Forms.Label();
             this.lblSaldo = new System.Windows.Forms.Label();
             this.gridPrincipal = new System.Windows.Forms.DataGridView();
-            this.Img = new System.Windows.Forms.DataGridViewImageColumn();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.ImageList = new System.Windows.Forms.ImageList(this.components);
+            this.contaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +47,9 @@
             this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Situacao = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Alterar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Excluir = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contaBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -126,35 +128,41 @@
             this.valorDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn,
             this.descricaoDataGridViewTextBoxColumn,
-            this.Img});
+            this.Situacao,
+            this.Alterar,
+            this.Excluir});
             this.gridPrincipal.DataSource = this.contaBindingSource;
-            this.gridPrincipal.Location = new System.Drawing.Point(15, 213);
+            this.gridPrincipal.Location = new System.Drawing.Point(27, 222);
             this.gridPrincipal.Name = "gridPrincipal";
             this.gridPrincipal.Size = new System.Drawing.Size(1059, 260);
             this.gridPrincipal.TabIndex = 5;
             // 
-            // Img
+            // ImageList
             // 
-            this.Img.HeaderText = "Img";
-            this.Img.Name = "Img";
+            this.ImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImageList.ImageStream")));
+            this.ImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.ImageList.Images.SetKeyName(0, "clock.png");
+            this.ImageList.Images.SetKeyName(1, "V.png");
+            this.ImageList.Images.SetKeyName(2, "Edit.png");
+            this.ImageList.Images.SetKeyName(3, "X.png");
             // 
-            // imageList1
+            // contaBindingSource
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Antencao.png");
+            this.contaBindingSource.DataSource = typeof(EstabelecimentoMRR.Model.Conta);
             // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
             // 
             // idUsuarioDataGridViewTextBoxColumn
             // 
             this.idUsuarioDataGridViewTextBoxColumn.DataPropertyName = "IdUsuario";
             this.idUsuarioDataGridViewTextBoxColumn.HeaderText = "IdUsuario";
             this.idUsuarioDataGridViewTextBoxColumn.Name = "idUsuarioDataGridViewTextBoxColumn";
+            this.idUsuarioDataGridViewTextBoxColumn.Visible = false;
             // 
             // nomeDataGridViewTextBoxColumn
             // 
@@ -197,10 +205,23 @@
             this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
             this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
             this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            this.descricaoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.descricaoDataGridViewTextBoxColumn.Visible = false;
             // 
-            // contaBindingSource
+            // Situacao
             // 
-            this.contaBindingSource.DataSource = typeof(EstabelecimentoMRR.Model.Conta);
+            this.Situacao.HeaderText = "";
+            this.Situacao.Name = "Situacao";
+            // 
+            // Alterar
+            // 
+            this.Alterar.HeaderText = "";
+            this.Alterar.Name = "Alterar";
+            // 
+            // Excluir
+            // 
+            this.Excluir.HeaderText = "";
+            this.Excluir.Name = "Excluir";
             // 
             // FormPrincipal
             // 
@@ -232,6 +253,8 @@
         private System.Windows.Forms.Label lblGastoMedio;
         private System.Windows.Forms.Label lblSaldo;
         private System.Windows.Forms.DataGridView gridPrincipal;
+        private System.Windows.Forms.BindingSource contaBindingSource;
+        private System.Windows.Forms.ImageList ImageList;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idUsuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
@@ -241,8 +264,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource contaBindingSource;
-        private System.Windows.Forms.DataGridViewImageColumn Img;
-        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.DataGridViewImageColumn Situacao;
+        private System.Windows.Forms.DataGridViewImageColumn Alterar;
+        private System.Windows.Forms.DataGridViewImageColumn Excluir;
     }
 }
