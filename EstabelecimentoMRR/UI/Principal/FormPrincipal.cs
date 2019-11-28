@@ -18,6 +18,8 @@ namespace EstabelecimentoMRR.UI.Principal
             ContaRep rep = new ContaRep();
             var contas = rep.Select_All();
             lblValorAPagar.Text = contas.Where(c => c.TipoConta == TipoConta.Dispesa && c.Status == Status.Pendente).Sum(s=> s.Valor).ToString();
+
+            dataGridView1.DataSource = contas;
         }
     }
 }
