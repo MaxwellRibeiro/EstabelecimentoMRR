@@ -48,13 +48,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btDataInicial = new System.Windows.Forms.DateTimePicker();
+            this.dtDataInicial = new System.Windows.Forms.DateTimePicker();
             this.lblDataInicial = new MaterialSkin.Controls.MaterialLabel();
-            this.btDataFinal = new System.Windows.Forms.DateTimePicker();
+            this.dtDataFinal = new System.Windows.Forms.DateTimePicker();
             this.lblDataFinal = new MaterialSkin.Controls.MaterialLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btAdicionarConta = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btEfetivo = new MaterialSkin.Controls.MaterialRaisedButton();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -132,6 +133,7 @@
             // gridPrincipal
             // 
             this.gridPrincipal.AutoGenerateColumns = false;
+            this.gridPrincipal.BackgroundColor = System.Drawing.Color.White;
             this.gridPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridPrincipal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -150,23 +152,29 @@
             this.gridPrincipal.Location = new System.Drawing.Point(12, 200);
             this.gridPrincipal.Name = "gridPrincipal";
             this.gridPrincipal.ReadOnly = true;
+            this.gridPrincipal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPrincipal.Size = new System.Drawing.Size(943, 260);
             this.gridPrincipal.TabIndex = 5;
+            this.gridPrincipal.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridPrincipal_CellClick);
+            this.gridPrincipal.SelectionChanged += new System.EventHandler(this.gridPrincipal_SelectionChanged);
             // 
             // Situacao
             // 
             this.Situacao.HeaderText = "";
             this.Situacao.Name = "Situacao";
+            this.Situacao.ReadOnly = true;
             // 
             // Alterar
             // 
             this.Alterar.HeaderText = "";
             this.Alterar.Name = "Alterar";
+            this.Alterar.ReadOnly = true;
             // 
             // Excluir
             // 
             this.Excluir.HeaderText = "";
             this.Excluir.Name = "Excluir";
+            this.Excluir.ReadOnly = true;
             // 
             // ImageList
             // 
@@ -250,14 +258,15 @@
             this.panel1.Size = new System.Drawing.Size(2, 84);
             this.panel1.TabIndex = 14;
             // 
-            // btDataInicial
+            // dtDataInicial
             // 
-            this.btDataInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.btDataInicial.Location = new System.Drawing.Point(103, 176);
-            this.btDataInicial.Margin = new System.Windows.Forms.Padding(2);
-            this.btDataInicial.Name = "btDataInicial";
-            this.btDataInicial.Size = new System.Drawing.Size(89, 20);
-            this.btDataInicial.TabIndex = 44;
+            this.dtDataInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDataInicial.Location = new System.Drawing.Point(103, 176);
+            this.dtDataInicial.Margin = new System.Windows.Forms.Padding(2);
+            this.dtDataInicial.Name = "dtDataInicial";
+            this.dtDataInicial.Size = new System.Drawing.Size(89, 20);
+            this.dtDataInicial.TabIndex = 44;
+            this.dtDataInicial.ValueChanged += new System.EventHandler(this.dtDataInicial_ValueChanged);
             // 
             // lblDataInicial
             // 
@@ -276,14 +285,15 @@
             this.lblDataInicial.TabIndex = 45;
             this.lblDataInicial.Text = "Data Inicial:";
             // 
-            // btDataFinal
+            // dtDataFinal
             // 
-            this.btDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.btDataFinal.Location = new System.Drawing.Point(289, 175);
-            this.btDataFinal.Margin = new System.Windows.Forms.Padding(2);
-            this.btDataFinal.Name = "btDataFinal";
-            this.btDataFinal.Size = new System.Drawing.Size(89, 20);
-            this.btDataFinal.TabIndex = 46;
+            this.dtDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDataFinal.Location = new System.Drawing.Point(289, 175);
+            this.dtDataFinal.Margin = new System.Windows.Forms.Padding(2);
+            this.dtDataFinal.Name = "dtDataFinal";
+            this.dtDataFinal.Size = new System.Drawing.Size(89, 20);
+            this.dtDataFinal.TabIndex = 46;
+            this.dtDataFinal.ValueChanged += new System.EventHandler(this.dtDataFinal_ValueChanged);
             // 
             // lblDataFinal
             // 
@@ -332,11 +342,27 @@
             this.btAdicionarConta.Text = "Adicionar Conta";
             this.btAdicionarConta.UseVisualStyleBackColor = true;
             // 
+            // btEfetivo
+            // 
+            this.btEfetivo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btEfetivo.Depth = 0;
+            this.btEfetivo.Location = new System.Drawing.Point(679, 465);
+            this.btEfetivo.Margin = new System.Windows.Forms.Padding(2);
+            this.btEfetivo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btEfetivo.Name = "btEfetivo";
+            this.btEfetivo.Primary = true;
+            this.btEfetivo.Size = new System.Drawing.Size(136, 36);
+            this.btEfetivo.TabIndex = 51;
+            this.btEfetivo.Text = "Efetivo";
+            this.btEfetivo.UseVisualStyleBackColor = true;
+            this.btEfetivo.Visible = false;
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Visible = false;
             // 
             // idUsuarioDataGridViewTextBoxColumn
@@ -344,6 +370,7 @@
             this.idUsuarioDataGridViewTextBoxColumn.DataPropertyName = "IdUsuario";
             this.idUsuarioDataGridViewTextBoxColumn.HeaderText = "IdUsuario";
             this.idUsuarioDataGridViewTextBoxColumn.Name = "idUsuarioDataGridViewTextBoxColumn";
+            this.idUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
             this.idUsuarioDataGridViewTextBoxColumn.Visible = false;
             // 
             // nomeDataGridViewTextBoxColumn
@@ -351,42 +378,49 @@
             this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
             this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
             this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tipoContaDataGridViewTextBoxColumn
             // 
             this.tipoContaDataGridViewTextBoxColumn.DataPropertyName = "TipoConta";
             this.tipoContaDataGridViewTextBoxColumn.HeaderText = "TipoConta";
             this.tipoContaDataGridViewTextBoxColumn.Name = "tipoContaDataGridViewTextBoxColumn";
+            this.tipoContaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dataLancamentoDataGridViewTextBoxColumn
             // 
             this.dataLancamentoDataGridViewTextBoxColumn.DataPropertyName = "DataLancamento";
             this.dataLancamentoDataGridViewTextBoxColumn.HeaderText = "DataLancamento";
             this.dataLancamentoDataGridViewTextBoxColumn.Name = "dataLancamentoDataGridViewTextBoxColumn";
+            this.dataLancamentoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dataVencimentoDataGridViewTextBoxColumn
             // 
             this.dataVencimentoDataGridViewTextBoxColumn.DataPropertyName = "DataVencimento";
             this.dataVencimentoDataGridViewTextBoxColumn.HeaderText = "DataVencimento";
             this.dataVencimentoDataGridViewTextBoxColumn.Name = "dataVencimentoDataGridViewTextBoxColumn";
+            this.dataVencimentoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // valorDataGridViewTextBoxColumn
             // 
             this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
             this.valorDataGridViewTextBoxColumn.HeaderText = "Valor";
             this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
+            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // statusDataGridViewTextBoxColumn
             // 
             this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
             this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // descricaoDataGridViewTextBoxColumn
             // 
             this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
             this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
             this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
             this.descricaoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.descricaoDataGridViewTextBoxColumn.Visible = false;
             // 
@@ -400,12 +434,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(967, 525);
+            this.Controls.Add(this.btEfetivo);
             this.Controls.Add(this.btAdicionarConta);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.btDataFinal);
+            this.Controls.Add(this.dtDataFinal);
             this.Controls.Add(this.lblDataFinal);
-            this.Controls.Add(this.btDataInicial);
+            this.Controls.Add(this.dtDataInicial);
             this.Controls.Add(this.lblDataInicial);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);
@@ -464,12 +499,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DateTimePicker btDataInicial;
+        private System.Windows.Forms.DateTimePicker dtDataInicial;
         private MaterialSkin.Controls.MaterialLabel lblDataInicial;
-        private System.Windows.Forms.DateTimePicker btDataFinal;
+        private System.Windows.Forms.DateTimePicker dtDataFinal;
         private MaterialSkin.Controls.MaterialLabel lblDataFinal;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private MaterialSkin.Controls.MaterialRaisedButton btAdicionarConta;
+        private MaterialSkin.Controls.MaterialRaisedButton btEfetivo;
     }
 }

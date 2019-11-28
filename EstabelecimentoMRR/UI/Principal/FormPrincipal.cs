@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using EstabelecimentoMRR.BusinessLogic;
 using EstabelecimentoMRR.Enum;
@@ -37,11 +38,17 @@ namespace EstabelecimentoMRR.UI.Principal
 
         public void FiltrarConta()
         {
-            gridPrincipal.DataSource = ListaTodasContas;
+            //todo Testar
+            var listaFiltrada = ListaTodasContas.Where(l =>
+                    l.DataLancamento.Date >= dtDataInicial.Value.Date &&
+                    l.DataLancamento.Date <= dtDataFinal.Value.Date)
+                .ToList();
 
-            lblValorAPagar.Text = ContaLogic.CalcularValorAPagar(ListaTodasContas).ToString();
-            lblValorAReceber.Text = ContaLogic.CalcularValorAReceber(ListaTodasContas).ToString();
-            lblGastoMedio.Text = ContaLogic.CalcularGastoMedioQuitado(ListaTodasContas).ToString();
+            gridPrincipal.DataSource = listaFiltrada;
+
+            lblValorAPagar.Text = ContaLogic.CalcularValorAPagar(listaFiltrada).ToString();
+            lblValorAReceber.Text = ContaLogic.CalcularValorAReceber(listaFiltrada).ToString();
+            lblGastoMedio.Text = ContaLogic.CalcularGastoMedio(listaFiltrada).ToString();
         }
 
         public void CarregarImagensGrid()
@@ -65,6 +72,49 @@ namespace EstabelecimentoMRR.UI.Principal
                     }
                 }
             }
+        }
+
+        private void gridPrincipal_SelectionChanged(object sender, EventArgs e)
+        {
+            if (gridPrincipal.CurrentRow == null) return;
+
+            var conta = (Conta)gridPrincipal.CurrentRow.DataBoundItem;
+
+            btEfetivo.Visible = conta.Status == Status.Pendente;
+            if (conta.Status == Status.Pendente && conta.TipoConta == TipoConta.Dispesa)
+            {
+                btEfetivo.Text = @"Quitar";
+            }
+            if (conta.Status == Status.Pendente && conta.TipoConta == TipoConta.Dispesa)
+            {
+                btEfetivo.Text = @"Receber";
+            }
+        }
+
+        private void gridPrincipal_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (gridPrincipal.Columns[e.ColumnIndex].Name == "Alterar")
+            {
+                if (gridPrincipal.CurrentRow == null) return;
+                var conta = (Conta)gridPrincipal.CurrentRow.DataBoundItem;
+                MessageBox.Show("Alterar " + conta.Nome);
+            }
+            if (gridPrincipal.Columns[e.ColumnIndex].Name == "Excluir")
+            {
+                if (gridPrincipal.CurrentRow == null) return;
+                var conta = (Conta)gridPrincipal.CurrentRow.DataBoundItem;
+                MessageBox.Show("Excluir " + conta.Nome);
+            }
+        }
+
+        private void dtDataInicial_ValueChanged(object sender, EventArgs e)
+        {
+            FiltrarConta();
+        }
+
+        private void dtDataFinal_ValueChanged(object sender, EventArgs e)
+        {
+            FiltrarConta();
         }
     }
 }

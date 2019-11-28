@@ -27,11 +27,11 @@ namespace EstabelecimentoMRR.BusinessLogic
             return saldo;
         }
 
-        public static decimal CalcularGastoMedioQuitado(List<Conta> contas)
+        public static decimal CalcularGastoMedio(List<Conta> contas)
         {
             decimal mediaGasto = 0;
 
-            var despesasPagas = contas.Where(c => c.TipoConta == TipoConta.Dispesa && c.Status == Status.Quitada).ToList();
+            var despesasPagas = contas.Where(c => c.TipoConta == TipoConta.Dispesa).ToList();
 
             decimal totalGasto = despesasPagas.Sum(d=> d.Valor);
             int totalDespesa = despesasPagas.Count;

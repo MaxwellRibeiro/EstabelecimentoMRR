@@ -48,9 +48,9 @@ namespace TesteEstabelecimentoMRR.Classe
         //Teste usando Theory e MemberData
         [Theory]
         [MemberData(nameof(Data))]
-        public void TestarCalculoGastoMedioQuitado(List<Conta> contas, int expected)
+        public void TestarCalculoGastoMedio(List<Conta> contas, int expected)
         {
-            Assert.Equal(expected, ContaLogic.CalcularGastoMedioQuitado(contas));
+            Assert.Equal(expected, ContaLogic.CalcularGastoMedio(contas));
         }
 
         public static IEnumerable<object[]> Data =>
