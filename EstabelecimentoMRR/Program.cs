@@ -17,15 +17,15 @@ namespace EstabelecimentoMRR
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new FormPrincipal());
+            //Application.Run(new FormPrincipal());
 
-            //var formLogin = new FormLogin();
-            //formLogin.ShowDialog();
+            var formLogin = new FormLogin();
+            formLogin.ShowDialog();
 
-            //if (formLogin.DialogResult == DialogResult.OK)
-            //{
-            //    Application.Run(new FormPrincipal());
-            //}
+            if (formLogin.DialogResult == DialogResult.OK)
+            {
+                Application.Run(new FormPrincipal());
+            }
         }
     }
 }

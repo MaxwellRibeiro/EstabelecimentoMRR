@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Drawing;
-using System.Linq;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using EstabelecimentoMRR.BusinessLogic;
 using EstabelecimentoMRR.Enum;
@@ -11,6 +10,8 @@ namespace EstabelecimentoMRR.UI.Principal
 {
     public partial class FormPrincipal : MaterialSkin.Controls.MaterialForm
     {
+        public List<Conta> ListaTodasContas { get; set; }
+
         public FormPrincipal()
         {
             InitializeComponent();
@@ -18,17 +19,33 @@ namespace EstabelecimentoMRR.UI.Principal
 
         private void FormPrincipal_Load(object sender, System.EventArgs e)
         {
+            ListaTodasContas = CarregarContas();
+            
+            lblSaldo.Text = ContaLogic.CalcularSaldo(ListaTodasContas).ToString();
+            lblValorAPagarAtradado.Text = ContaLogic.CalcularValorAPagarAtradado(DateTime.Now, ListaTodasContas).ToString();
+
+            FiltrarConta();
+
+            CarregarImagensGrid();
+        }
+
+        public List<Conta> CarregarContas()
+        {
             ContaRep rep = new ContaRep();
-            var contas = rep.Select_All();
+            return rep.Select_All();
+        }
 
-            lblValorAPagar.Text = ContaLogic.CalcularValorAPagar(contas).ToString();
-            lblValorAPagarAtradado.Text = ContaLogic.CalcularValorAPagarAtradado(DateTime.Now, contas).ToString();
-            lblValorAReceber.Text = ContaLogic.CalcularValorAReceber(contas).ToString();
-            lblGastoMedio.Text = ContaLogic.CalcularGastoMedioQuitado(contas).ToString();
-            lblSaldo.Text = ContaLogic.CalcularSaldo(contas).ToString();
+        public void FiltrarConta()
+        {
+            gridPrincipal.DataSource = ListaTodasContas;
 
-            gridPrincipal.DataSource = contas;
+            lblValorAPagar.Text = ContaLogic.CalcularValorAPagar(ListaTodasContas).ToString();
+            lblValorAReceber.Text = ContaLogic.CalcularValorAReceber(ListaTodasContas).ToString();
+            lblGastoMedio.Text = ContaLogic.CalcularGastoMedioQuitado(ListaTodasContas).ToString();
+        }
 
+        public void CarregarImagensGrid()
+        {
             foreach (DataGridViewRow row in gridPrincipal.Rows)
             {
                 var data = (Conta)row.DataBoundItem;
