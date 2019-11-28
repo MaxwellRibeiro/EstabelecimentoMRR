@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.lblValorAPagar = new System.Windows.Forms.Label();
             this.lblValorAPagarAtradado = new System.Windows.Forms.Label();
             this.lblValorAReceber = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.contaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblGastoMedio = new System.Windows.Forms.Label();
+            this.lblSaldo = new System.Windows.Forms.Label();
+            this.gridPrincipal = new System.Windows.Forms.DataGridView();
+            this.Img = new System.Windows.Forms.DataGridViewImageColumn();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +47,8 @@
             this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.gridPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +57,7 @@
             this.lblValorAPagar.BackColor = System.Drawing.Color.SteelBlue;
             this.lblValorAPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValorAPagar.ForeColor = System.Drawing.Color.White;
-            this.lblValorAPagar.Location = new System.Drawing.Point(12, 78);
+            this.lblValorAPagar.Location = new System.Drawing.Point(758, 104);
             this.lblValorAPagar.Name = "lblValorAPagar";
             this.lblValorAPagar.Size = new System.Drawing.Size(149, 49);
             this.lblValorAPagar.TabIndex = 0;
@@ -66,7 +69,7 @@
             this.lblValorAPagarAtradado.BackColor = System.Drawing.Color.SteelBlue;
             this.lblValorAPagarAtradado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValorAPagarAtradado.ForeColor = System.Drawing.Color.White;
-            this.lblValorAPagarAtradado.Location = new System.Drawing.Point(167, 78);
+            this.lblValorAPagarAtradado.Location = new System.Drawing.Point(179, 104);
             this.lblValorAPagarAtradado.Name = "lblValorAPagarAtradado";
             this.lblValorAPagarAtradado.Size = new System.Drawing.Size(149, 49);
             this.lblValorAPagarAtradado.TabIndex = 1;
@@ -78,42 +81,42 @@
             this.lblValorAReceber.BackColor = System.Drawing.Color.SteelBlue;
             this.lblValorAReceber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValorAReceber.ForeColor = System.Drawing.Color.White;
-            this.lblValorAReceber.Location = new System.Drawing.Point(322, 78);
+            this.lblValorAReceber.Location = new System.Drawing.Point(603, 104);
             this.lblValorAReceber.Name = "lblValorAReceber";
             this.lblValorAReceber.Size = new System.Drawing.Size(149, 49);
             this.lblValorAReceber.TabIndex = 2;
             this.lblValorAReceber.Text = "Valor à Receber";
             this.lblValorAReceber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // lblGastoMedio
             // 
-            this.label3.BackColor = System.Drawing.Color.SteelBlue;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(477, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 49);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Valor à Pagar";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblGastoMedio.BackColor = System.Drawing.Color.SteelBlue;
+            this.lblGastoMedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGastoMedio.ForeColor = System.Drawing.Color.White;
+            this.lblGastoMedio.Location = new System.Drawing.Point(913, 104);
+            this.lblGastoMedio.Name = "lblGastoMedio";
+            this.lblGastoMedio.Size = new System.Drawing.Size(149, 49);
+            this.lblGastoMedio.TabIndex = 3;
+            this.lblGastoMedio.Text = "Gasto Médio";
+            this.lblGastoMedio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // lblSaldo
             // 
-            this.label4.BackColor = System.Drawing.Color.SteelBlue;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(632, 78);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(149, 49);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Valor à Pagar";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSaldo.BackColor = System.Drawing.Color.SteelBlue;
+            this.lblSaldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaldo.ForeColor = System.Drawing.Color.White;
+            this.lblSaldo.Location = new System.Drawing.Point(24, 104);
+            this.lblSaldo.Name = "lblSaldo";
+            this.lblSaldo.Size = new System.Drawing.Size(149, 49);
+            this.lblSaldo.TabIndex = 4;
+            this.lblSaldo.Text = "Saldo";
+            this.lblSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridView1
+            // gridPrincipal
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridPrincipal.AutoGenerateColumns = false;
+            this.gridPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridPrincipal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.idUsuarioDataGridViewTextBoxColumn,
             this.nomeDataGridViewTextBoxColumn,
@@ -122,16 +125,24 @@
             this.dataVencimentoDataGridViewTextBoxColumn,
             this.valorDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn,
-            this.descricaoDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.contaBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(38, 159);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(966, 179);
-            this.dataGridView1.TabIndex = 5;
+            this.descricaoDataGridViewTextBoxColumn,
+            this.Img});
+            this.gridPrincipal.DataSource = this.contaBindingSource;
+            this.gridPrincipal.Location = new System.Drawing.Point(15, 213);
+            this.gridPrincipal.Name = "gridPrincipal";
+            this.gridPrincipal.Size = new System.Drawing.Size(1059, 260);
+            this.gridPrincipal.TabIndex = 5;
             // 
-            // contaBindingSource
+            // Img
             // 
-            this.contaBindingSource.DataSource = typeof(EstabelecimentoMRR.Model.Conta);
+            this.Img.HeaderText = "Img";
+            this.Img.Name = "Img";
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Antencao.png");
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -187,23 +198,27 @@
             this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
             this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
             // 
+            // contaBindingSource
+            // 
+            this.contaBindingSource.DataSource = typeof(EstabelecimentoMRR.Model.Conta);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1016, 539);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(1152, 595);
             this.Controls.Add(this.lblValorAReceber);
-            this.Controls.Add(this.lblValorAPagarAtradado);
+            this.Controls.Add(this.lblSaldo);
             this.Controls.Add(this.lblValorAPagar);
+            this.Controls.Add(this.lblGastoMedio);
+            this.Controls.Add(this.lblValorAPagarAtradado);
+            this.Controls.Add(this.gridPrincipal);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormPrincipal";
             this.Text = "FormPrincipal";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPrincipal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -214,9 +229,9 @@
         private System.Windows.Forms.Label lblValorAPagar;
         private System.Windows.Forms.Label lblValorAPagarAtradado;
         private System.Windows.Forms.Label lblValorAReceber;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lblGastoMedio;
+        private System.Windows.Forms.Label lblSaldo;
+        private System.Windows.Forms.DataGridView gridPrincipal;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idUsuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
@@ -227,5 +242,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource contaBindingSource;
+        private System.Windows.Forms.DataGridViewImageColumn Img;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

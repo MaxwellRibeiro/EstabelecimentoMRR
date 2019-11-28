@@ -80,6 +80,7 @@ namespace EstabelecimentoMRR.Repository
                 contas.Add(new Conta()
                 {
                     Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                    IdUsuario = reader.GetInt32(reader.GetOrdinal("IdUsuario")),
                     Nome = reader.GetString(reader.GetOrdinal("Nome")),
                     TipoConta = paramTipo,
                     DataLancamento = reader.GetDateTime(reader.GetOrdinal("DataLancamento")),
