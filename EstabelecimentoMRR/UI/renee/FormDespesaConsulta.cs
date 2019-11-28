@@ -31,6 +31,12 @@ namespace EstabelecimentoMRR.UI.Despesa
         {
             _fluxocaixa = new Conta();
             _rep = new ContaRep();
+            dataGridView1.DataSource = _rep.Select_All();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

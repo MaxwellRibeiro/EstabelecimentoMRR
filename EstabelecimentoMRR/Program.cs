@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using EstabelecimentoMRR.UI.Login;
+using EstabelecimentoMRR.UI.Despesa;
 
 namespace EstabelecimentoMRR
 {
