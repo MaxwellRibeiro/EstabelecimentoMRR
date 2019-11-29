@@ -56,6 +56,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btAdicionarConta = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btEfetivo = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.ckReceita = new MaterialSkin.Controls.MaterialCheckBox();
+            this.ckDispesa = new MaterialSkin.Controls.MaterialCheckBox();
+            this.ckEfetivo = new MaterialSkin.Controls.MaterialCheckBox();
+            this.ckPendente = new MaterialSkin.Controls.MaterialCheckBox();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -149,11 +154,11 @@
             this.Alterar,
             this.Excluir});
             this.gridPrincipal.DataSource = this.contaBindingSource;
-            this.gridPrincipal.Location = new System.Drawing.Point(12, 200);
+            this.gridPrincipal.Location = new System.Drawing.Point(12, 206);
             this.gridPrincipal.Name = "gridPrincipal";
             this.gridPrincipal.ReadOnly = true;
             this.gridPrincipal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPrincipal.Size = new System.Drawing.Size(943, 260);
+            this.gridPrincipal.Size = new System.Drawing.Size(943, 254);
             this.gridPrincipal.TabIndex = 5;
             this.gridPrincipal.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridPrincipal_CellClick);
             this.gridPrincipal.SelectionChanged += new System.EventHandler(this.gridPrincipal_SelectionChanged);
@@ -261,7 +266,7 @@
             // dtDataInicial
             // 
             this.dtDataInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDataInicial.Location = new System.Drawing.Point(103, 176);
+            this.dtDataInicial.Location = new System.Drawing.Point(103, 180);
             this.dtDataInicial.Margin = new System.Windows.Forms.Padding(2);
             this.dtDataInicial.Name = "dtDataInicial";
             this.dtDataInicial.Size = new System.Drawing.Size(89, 20);
@@ -277,7 +282,7 @@
             this.lblDataInicial.Depth = 0;
             this.lblDataInicial.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblDataInicial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDataInicial.Location = new System.Drawing.Point(11, 178);
+            this.lblDataInicial.Location = new System.Drawing.Point(11, 180);
             this.lblDataInicial.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDataInicial.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDataInicial.Name = "lblDataInicial";
@@ -288,7 +293,7 @@
             // dtDataFinal
             // 
             this.dtDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDataFinal.Location = new System.Drawing.Point(289, 175);
+            this.dtDataFinal.Location = new System.Drawing.Point(280, 179);
             this.dtDataFinal.Margin = new System.Windows.Forms.Padding(2);
             this.dtDataFinal.Name = "dtDataFinal";
             this.dtDataFinal.Size = new System.Drawing.Size(89, 20);
@@ -304,7 +309,7 @@
             this.lblDataFinal.Depth = 0;
             this.lblDataFinal.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblDataFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDataFinal.Location = new System.Drawing.Point(205, 177);
+            this.lblDataFinal.Location = new System.Drawing.Point(196, 179);
             this.lblDataFinal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDataFinal.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDataFinal.Name = "lblDataFinal";
@@ -341,6 +346,7 @@
             this.btAdicionarConta.TabIndex = 50;
             this.btAdicionarConta.Text = "Adicionar Conta";
             this.btAdicionarConta.UseVisualStyleBackColor = true;
+            this.btAdicionarConta.Click += new System.EventHandler(this.btAdicionarConta_Click);
             // 
             // btEfetivo
             // 
@@ -356,6 +362,91 @@
             this.btEfetivo.Text = "Efetivo";
             this.btEfetivo.UseVisualStyleBackColor = true;
             this.btEfetivo.Visible = false;
+            this.btEfetivo.Click += new System.EventHandler(this.btEfetivo_Click);
+            // 
+            // ckReceita
+            // 
+            this.ckReceita.AutoSize = true;
+            this.ckReceita.Checked = true;
+            this.ckReceita.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckReceita.Depth = 0;
+            this.ckReceita.Font = new System.Drawing.Font("Roboto", 10F);
+            this.ckReceita.Location = new System.Drawing.Point(406, 173);
+            this.ckReceita.Margin = new System.Windows.Forms.Padding(0);
+            this.ckReceita.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.ckReceita.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ckReceita.Name = "ckReceita";
+            this.ckReceita.Ripple = true;
+            this.ckReceita.Size = new System.Drawing.Size(130, 30);
+            this.ckReceita.TabIndex = 52;
+            this.ckReceita.Text = "Contas Receitas";
+            this.ckReceita.UseVisualStyleBackColor = true;
+            this.ckReceita.CheckedChanged += new System.EventHandler(this.ckReceita_CheckedChanged);
+            // 
+            // ckDispesa
+            // 
+            this.ckDispesa.AutoSize = true;
+            this.ckDispesa.Checked = true;
+            this.ckDispesa.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckDispesa.Depth = 0;
+            this.ckDispesa.Font = new System.Drawing.Font("Roboto", 10F);
+            this.ckDispesa.Location = new System.Drawing.Point(540, 173);
+            this.ckDispesa.Margin = new System.Windows.Forms.Padding(0);
+            this.ckDispesa.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.ckDispesa.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ckDispesa.Name = "ckDispesa";
+            this.ckDispesa.Ripple = true;
+            this.ckDispesa.Size = new System.Drawing.Size(133, 30);
+            this.ckDispesa.TabIndex = 53;
+            this.ckDispesa.Text = "Contas Dispesas";
+            this.ckDispesa.UseVisualStyleBackColor = true;
+            this.ckDispesa.CheckedChanged += new System.EventHandler(this.ckDispesa_CheckedChanged);
+            // 
+            // ckEfetivo
+            // 
+            this.ckEfetivo.AutoSize = true;
+            this.ckEfetivo.Checked = true;
+            this.ckEfetivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckEfetivo.Depth = 0;
+            this.ckEfetivo.Font = new System.Drawing.Font("Roboto", 10F);
+            this.ckEfetivo.Location = new System.Drawing.Point(677, 173);
+            this.ckEfetivo.Margin = new System.Windows.Forms.Padding(0);
+            this.ckEfetivo.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.ckEfetivo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ckEfetivo.Name = "ckEfetivo";
+            this.ckEfetivo.Ripple = true;
+            this.ckEfetivo.Size = new System.Drawing.Size(126, 30);
+            this.ckEfetivo.TabIndex = 54;
+            this.ckEfetivo.Text = "Contas Efetivas";
+            this.ckEfetivo.UseVisualStyleBackColor = true;
+            this.ckEfetivo.CheckedChanged += new System.EventHandler(this.ckEfetivo_CheckedChanged);
+            // 
+            // ckPendente
+            // 
+            this.ckPendente.AutoSize = true;
+            this.ckPendente.Checked = true;
+            this.ckPendente.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckPendente.Depth = 0;
+            this.ckPendente.Font = new System.Drawing.Font("Roboto", 10F);
+            this.ckPendente.Location = new System.Drawing.Point(807, 173);
+            this.ckPendente.Margin = new System.Windows.Forms.Padding(0);
+            this.ckPendente.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.ckPendente.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ckPendente.Name = "ckPendente";
+            this.ckPendente.Ripple = true;
+            this.ckPendente.Size = new System.Drawing.Size(142, 30);
+            this.ckPendente.TabIndex = 55;
+            this.ckPendente.Text = "Contas Pendentes";
+            this.ckPendente.UseVisualStyleBackColor = true;
+            this.ckPendente.CheckedChanged += new System.EventHandler(this.ckPendente_CheckedChanged);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel4.Location = new System.Drawing.Point(390, 179);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(2, 20);
+            this.panel4.TabIndex = 56;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -434,6 +525,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(967, 525);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.ckPendente);
+            this.Controls.Add(this.ckEfetivo);
+            this.Controls.Add(this.ckDispesa);
+            this.Controls.Add(this.ckReceita);
             this.Controls.Add(this.btEfetivo);
             this.Controls.Add(this.btAdicionarConta);
             this.Controls.Add(this.panel3);
@@ -460,7 +556,7 @@
             this.MaximizeBox = false;
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormPrincipal";
+            this.Text = "Home";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridPrincipal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contaBindingSource)).EndInit();
@@ -507,5 +603,10 @@
         private System.Windows.Forms.Panel panel3;
         private MaterialSkin.Controls.MaterialRaisedButton btAdicionarConta;
         private MaterialSkin.Controls.MaterialRaisedButton btEfetivo;
+        private MaterialSkin.Controls.MaterialCheckBox ckReceita;
+        private MaterialSkin.Controls.MaterialCheckBox ckDispesa;
+        private MaterialSkin.Controls.MaterialCheckBox ckEfetivo;
+        private MaterialSkin.Controls.MaterialCheckBox ckPendente;
+        private System.Windows.Forms.Panel panel4;
     }
 }

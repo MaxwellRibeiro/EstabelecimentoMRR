@@ -51,9 +51,13 @@ namespace EstabelecimentoMRR.UI.Login
         private void btnLogin_Click(object sender, System.EventArgs e)
         {
             var rep = new UsuarioRep();
-            var acessoPermitido = rep.Login(txtEmail.Text, txtSenha.Text);
-            if (acessoPermitido)
+            var usuario = rep.Login(txtEmail.Text, txtSenha.Text);
+            if (usuario != null)
             {
+                Session.Instance.IdUsuario = usuario.Id;
+                Session.Instance.NomeUsuario = usuario.Nome;
+                Session.Instance.EmailUsuario = usuario.Email;
+
                 DialogResult = DialogResult.OK;
                 Close();
             }

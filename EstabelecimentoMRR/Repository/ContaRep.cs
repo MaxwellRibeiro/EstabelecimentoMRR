@@ -34,7 +34,7 @@ namespace EstabelecimentoMRR.Repository
 
             while (reader.Read())
             {
-                contas.Add(new Conta()
+                contas.Add(new Conta
                 {
                     Id = reader.GetInt32(reader.GetOrdinal("Id")),
                     Nome = reader.GetString(reader.GetOrdinal("Nome"))
@@ -49,8 +49,8 @@ namespace EstabelecimentoMRR.Repository
         public List<Conta> Select_All()
         {
             List<Conta> contas = new List<Conta>();
-
-            var sql = "select * from conta";
+            
+            var sql = $"select * from conta where IdUsuario = {Session.Instance.IdUsuario}";
 
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
             MySqlCommand command = new MySqlCommand(sql, con);
