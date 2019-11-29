@@ -110,11 +110,15 @@ namespace EstabelecimentoMRR.UI.Principal
         private void dtDataInicial_ValueChanged(object sender, EventArgs e)
         {
             FiltrarConta();
+            
         }
 
         private void dtDataFinal_ValueChanged(object sender, EventArgs e)
         {
             FiltrarConta();
+           
         }
+
+      
     }
 }
