@@ -15,11 +15,8 @@ namespace EstabelecimentoMRR.Repository
         //Opcao 1
 
 
-        public List<Conta> Insert(Conta _fluxocaixa)
-        {
-
-            List<Conta> contas = new List<Conta>();
-
+        public bool Insert(Conta _fluxocaixa)
+        {        
             var sql = "insert into conta(Nome, TipoConta, DataLancamento, DataVencimento, Valor, Status, Descricao, idUsuario) " +
                 "values('"+ _fluxocaixa.Nome + "', " + (int)_fluxocaixa.TipoConta + ", '" + _fluxocaixa.DataLancamento.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + _fluxocaixa.DataVencimento.ToString("yyyy-MM-dd HH:mm:ss") + "'," +
                 " " + _fluxocaixa.Valor + ", " + (int)_fluxocaixa.Status + ", '" + _fluxocaixa.Descricao + "', " + _fluxocaixa.IdUsuario + ")";
@@ -30,21 +27,66 @@ namespace EstabelecimentoMRR.Repository
             MySqlCommand command = new MySqlCommand(sql, con);
             con.Open();
 
-            MySqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                contas.Add(new Conta
-                {
-                    Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                    Nome = reader.GetString(reader.GetOrdinal("Nome"))
-                });
-
-            }
+            _fluxocaixa.Id = Convert.ToInt32(command.ExecuteScalar());
+            
             con.Dispose();
             con.Close();
 
-            return contas;
+            return true;
+        }
+
+        public bool Update(Conta _fluxocaixa)
+        {
+            var sql = "update conta set Nome = '" + _fluxocaixa.Nome + "', DataVencimento = '" +
+                _fluxocaixa.DataVencimento.ToString("yyyy-MM-dd HH:mm:ss") + "', Descricao= '" +
+                _fluxocaixa.Descricao + "' where Id=" + _fluxocaixa.Id;
+
+
+            MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(sql, con);
+            con.Open();
+
+            _fluxocaixa.Id = Convert.ToInt32(command.ExecuteScalar());
+
+
+            con.Dispose();
+            con.Close();
+
+            return true;
+        }
+        public bool Efetivar(Conta _fluxocaixa)
+        {
+            var sql = "update conta  set Status = "+ (int)_fluxocaixa.Status + " where Id = " + _fluxocaixa.Id;
+
+
+            MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(sql, con);
+            con.Open();
+
+            int x = Convert.ToInt32(command.ExecuteScalar());
+
+
+            con.Dispose();
+            con.Close();
+
+            return true;
+        }
+        public bool Delete(Conta _fluxocaixa)
+        {
+            var sql = "delete from conta where Id =" + _fluxocaixa.Id;
+
+
+            MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(sql, con);
+            con.Open();
+
+            _fluxocaixa.Id = Convert.ToInt32(command.ExecuteScalar());
+
+
+            con.Dispose();
+            con.Close();
+
+            return true;
         }
         public List<Conta> Select_All()
         {
@@ -64,7 +106,7 @@ namespace EstabelecimentoMRR.Repository
                 var status = reader.GetInt32(reader.GetOrdinal("Status"));
                 TipoConta paramTipo;
                 if (conta == 1)
-                    paramTipo = TipoConta.Dispesa;
+                    paramTipo = TipoConta.Despesa;
                 else if (conta == 2)
                     paramTipo = TipoConta.Receita;
                 else

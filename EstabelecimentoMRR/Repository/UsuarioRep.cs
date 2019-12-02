@@ -11,8 +11,8 @@ namespace EstabelecimentoMRR.Repository
         {
             Usuario usuario = null;
 
-            var sql = "SELECT * FROM usuario AS u WHERE u.Email = '" + email + "' AND senha = '" + senha + "'";
-
+                      var sql = "SELECT * FROM usuario AS u WHERE u.Email = '" + email + "' AND senha = '" + senha + "'";
+            //var sql = "SELECT * FROM usuario AS u WHERE u.Email = " + email + " AND senha = " + senha;
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
             MySqlCommand command = new MySqlCommand(sql, con);
             con.Open();

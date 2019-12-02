@@ -6,12 +6,14 @@ using EstabelecimentoMRR.BusinessLogic;
 using EstabelecimentoMRR.Enum;
 using EstabelecimentoMRR.Model;
 using EstabelecimentoMRR.Repository;
+using EstabelecimentoMRR.UI.renee;
 
 namespace EstabelecimentoMRR.UI.Principal
 {
     public partial class FormPrincipal : MaterialSkin.Controls.MaterialForm
     {
         public List<Conta> ListaTodasContas { get; set; }
+        FormCadastroConta form;       
 
         public FormPrincipal()
         {
@@ -60,7 +62,7 @@ namespace EstabelecimentoMRR.UI.Principal
             }
             if (!ckDispesa.Checked)
             {
-                listaFiltrada = listaFiltrada.Where(l => l.TipoConta != TipoConta.Dispesa).ToList();
+                listaFiltrada = listaFiltrada.Where(l => l.TipoConta != TipoConta.Despesa).ToList();
             }
 
             gridPrincipal.DataSource = listaFiltrada;
@@ -102,7 +104,7 @@ namespace EstabelecimentoMRR.UI.Principal
             var conta = (Conta)gridPrincipal.CurrentRow.DataBoundItem;
 
             btEfetivo.Visible = conta.Status == Status.Pendente;
-            if (conta.Status == Status.Pendente && conta.TipoConta == TipoConta.Dispesa)
+            if (conta.Status == Status.Pendente && conta.TipoConta == TipoConta.Despesa)
             {
                 btEfetivo.Text = @"Quitar";
             }
@@ -147,27 +149,80 @@ namespace EstabelecimentoMRR.UI.Principal
             if (gridPrincipal.Columns[e.ColumnIndex].Name == "Alterar")
             {
                 if (gridPrincipal.CurrentRow == null) return;
-                var conta = (Conta)gridPrincipal.CurrentRow.DataBoundItem;
-                MessageBox.Show(@"Alterar " + conta.Nome);
+                var conta = (Conta)gridPrincipal.CurrentRow.DataBoundItem;                
+                form = new FormCadastroConta(conta);
+                form.ShowDialog();
+                ListaTodasContas = CarregarContas();
+                FiltrarConta();
+                
             }
-            if (gridPrincipal.Columns[e.ColumnIndex].Name == "Excluir")
+            else if (gridPrincipal.Columns[e.ColumnIndex].Name == "Excluir")
             {
                 if (gridPrincipal.CurrentRow == null) return;
                 var conta = (Conta)gridPrincipal.CurrentRow.DataBoundItem;
-                MessageBox.Show(@"Excluir " + conta.Nome);
-            }
+                if (conta.Id > 0)
+                {
+                    if (conta.Status == Enum.Status.Quitada || conta.Status == Enum.Status.Recebido)
+                        MessageBox.Show(@"Impossivel Excluir conta.", "Aviso");
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("Deseja realmente Excluir este registro?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (result == DialogResult.Yes)
+                        {
+                            ContaRep rep = new ContaRep();
+                            rep.Delete(conta);
+                            ListaTodasContas = CarregarContas();
+                            FiltrarConta();
+                            MessageBox.Show(@"Excluido com sucesso.", "Aviso");
+
+                            
+                        }
+                        else return;
+                    }
+                }
+                else return;                                                
+            }            
         }
 
         private void btAdicionarConta_Click(object sender, EventArgs e)
-        {
-            if (gridPrincipal.CurrentRow == null) return;
-            var conta = (Conta)gridPrincipal.CurrentRow.DataBoundItem;
+        {            
+            Conta oj = new Conta();                
+            form = new FormCadastroConta(oj);
+            form.ShowDialog();
+            ListaTodasContas = CarregarContas();
+            FiltrarConta();
         }
+            
 
         private void btEfetivo_Click(object sender, EventArgs e)
         {
             if (gridPrincipal.CurrentRow == null) return;
             var conta = (Conta)gridPrincipal.CurrentRow.DataBoundItem;
+            string texto = conta.TipoConta == Enum.TipoConta.Despesa ? "Quitar" : "Receber";
+            if (conta.Status == Enum.Status.Quitada || conta.Status == Enum.Status.Recebido)
+            {
+                MessageBox.Show("Impossivel Efetivar este registro.", "Aviso");
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Deseja realmente " + texto + " este registro?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    ContaRep rep = new ContaRep();
+                    conta.Status = texto == "Quitar" ? Enum.Status.Quitada : Enum.Status.Recebido;
+                    rep.Efetivar(conta);
+                    ListaTodasContas = CarregarContas();
+                    FiltrarConta();
+                    CarregarImagensGrid();
+                    MessageBox.Show(@"Efetivado com sucesso.", "Aviso");
+
+                    
+                }
+                else return;
+            }
+
+            Refresh();
         }
+
     }
 }

@@ -15,7 +15,7 @@ namespace EstabelecimentoMRR.BusinessLogic
 
             foreach (var conta in contasEfetivas)
             {
-                if(conta.TipoConta == TipoConta.Dispesa)
+                if(conta.TipoConta == TipoConta.Despesa)
                 {
                     saldo -= conta.Valor;
                 }
@@ -31,7 +31,7 @@ namespace EstabelecimentoMRR.BusinessLogic
         {
             decimal mediaGasto = 0;
 
-            var despesasPagas = contas.Where(c => c.TipoConta == TipoConta.Dispesa).ToList();
+            var despesasPagas = contas.Where(c => c.TipoConta == TipoConta.Despesa).ToList();
 
             decimal totalGasto = despesasPagas.Sum(d=> d.Valor);
             int totalDespesa = despesasPagas.Count;
@@ -50,7 +50,7 @@ namespace EstabelecimentoMRR.BusinessLogic
             foreach (var conta in contas)
             {
                 if (data.Date        > conta.DataVencimento.Date &&
-                    conta.TipoConta == TipoConta.Dispesa         &&
+                    conta.TipoConta == TipoConta.Despesa         &&
                     conta.Status    == Status.Pendente)
                 {
                     totalValorAPagarAtradado += conta.Valor;
@@ -67,7 +67,7 @@ namespace EstabelecimentoMRR.BusinessLogic
 
         public static decimal CalcularValorAPagar(List<Conta> contas)
         {
-            return contas.Where(c => c.TipoConta == TipoConta.Dispesa && c.Status == Status.Pendente).Sum(s => s.Valor);
+            return contas.Where(c => c.TipoConta == TipoConta.Despesa && c.Status == Status.Pendente).Sum(s => s.Valor);
         }
     }
 }

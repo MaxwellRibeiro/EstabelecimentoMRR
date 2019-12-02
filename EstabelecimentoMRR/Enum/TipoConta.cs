@@ -2,7 +2,7 @@
 {
     public enum TipoConta
     {
-        Dispesa = 1,
+        Despesa = 1,
         Receita = 2
     }
 }

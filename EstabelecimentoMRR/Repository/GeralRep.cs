@@ -32,7 +32,7 @@ namespace EstabelecimentoMRR.Repository
                 var s = reader.GetInt32(reader.GetOrdinal("Status"));
                 TipoConta e;
                 if (c == 1)               
-                    e = TipoConta.Dispesa;                
+                    e = TipoConta.Despesa;                
                 else if (c == 2)                
                     e = TipoConta.Receita;                
                 else
