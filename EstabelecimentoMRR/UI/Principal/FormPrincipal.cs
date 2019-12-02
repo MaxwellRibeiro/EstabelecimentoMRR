@@ -20,14 +20,15 @@ namespace EstabelecimentoMRR.UI.Principal
 
         private void FormPrincipal_Load(object sender, System.EventArgs e)
         {
+            dtDataInicial.Value = DateTime.Now.AddDays(-15);
+            dtDataFinal.Value = DateTime.Now.AddDays(15);
+
             ListaTodasContas = CarregarContas();
             
             lblSaldo.Text = ContaLogic.CalcularSaldo(ListaTodasContas).ToString();
             lblValorAPagarAtradado.Text = ContaLogic.CalcularValorAPagarAtradado(DateTime.Now, ListaTodasContas).ToString();
 
             FiltrarConta();
-
-            CarregarImagensGrid();
         }
 
         public List<Conta> CarregarContas()
@@ -38,17 +39,37 @@ namespace EstabelecimentoMRR.UI.Principal
 
         public void FiltrarConta()
         {
-            //todo Testar
+            if(ListaTodasContas == null) return;
+
             var listaFiltrada = ListaTodasContas.Where(l =>
                     l.DataLancamento.Date >= dtDataInicial.Value.Date &&
                     l.DataLancamento.Date <= dtDataFinal.Value.Date)
                 .ToList();
+
+            if (!ckEfetivo.Checked)
+            {
+                listaFiltrada = listaFiltrada.Where(l => l.Status != Status.Quitada && l.Status != Status.Recebido).ToList();
+            }
+            if (!ckPendente.Checked)
+            {
+                listaFiltrada = listaFiltrada.Where(l => l.Status != Status.Pendente).ToList();
+            }
+            if (!ckReceita.Checked)
+            {
+                listaFiltrada = listaFiltrada.Where(l => l.TipoConta != TipoConta.Receita).ToList();
+            }
+            if (!ckDispesa.Checked)
+            {
+                listaFiltrada = listaFiltrada.Where(l => l.TipoConta != TipoConta.Dispesa).ToList();
+            }
 
             gridPrincipal.DataSource = listaFiltrada;
 
             lblValorAPagar.Text = ContaLogic.CalcularValorAPagar(listaFiltrada).ToString();
             lblValorAReceber.Text = ContaLogic.CalcularValorAReceber(listaFiltrada).ToString();
             lblGastoMedio.Text = ContaLogic.CalcularGastoMedio(listaFiltrada).ToString();
+
+            CarregarImagensGrid();
         }
 
         public void CarregarImagensGrid()
@@ -85,10 +106,40 @@ namespace EstabelecimentoMRR.UI.Principal
             {
                 btEfetivo.Text = @"Quitar";
             }
-            if (conta.Status == Status.Pendente && conta.TipoConta == TipoConta.Dispesa)
+            if (conta.Status == Status.Pendente && conta.TipoConta == TipoConta.Receita)
             {
                 btEfetivo.Text = @"Receber";
             }
+        }
+
+        private void dtDataInicial_ValueChanged(object sender, EventArgs e)
+        {
+            FiltrarConta();
+        }
+
+        private void dtDataFinal_ValueChanged(object sender, EventArgs e)
+        {
+            FiltrarConta();
+        }
+
+        private void ckReceita_CheckedChanged(object sender, EventArgs e)
+        {
+            FiltrarConta();
+        }
+
+        private void ckDispesa_CheckedChanged(object sender, EventArgs e)
+        {
+            FiltrarConta();
+        }
+
+        private void ckEfetivo_CheckedChanged(object sender, EventArgs e)
+        {
+            FiltrarConta();
+        }
+
+        private void ckPendente_CheckedChanged(object sender, EventArgs e)
+        {
+            FiltrarConta();
         }
 
         private void gridPrincipal_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -97,28 +148,26 @@ namespace EstabelecimentoMRR.UI.Principal
             {
                 if (gridPrincipal.CurrentRow == null) return;
                 var conta = (Conta)gridPrincipal.CurrentRow.DataBoundItem;
-                MessageBox.Show("Alterar " + conta.Nome);
+                MessageBox.Show(@"Alterar " + conta.Nome);
             }
             if (gridPrincipal.Columns[e.ColumnIndex].Name == "Excluir")
             {
                 if (gridPrincipal.CurrentRow == null) return;
                 var conta = (Conta)gridPrincipal.CurrentRow.DataBoundItem;
-                MessageBox.Show("Excluir " + conta.Nome);
+                MessageBox.Show(@"Excluir " + conta.Nome);
             }
         }
 
-        private void dtDataInicial_ValueChanged(object sender, EventArgs e)
+        private void btAdicionarConta_Click(object sender, EventArgs e)
         {
-            FiltrarConta();
-            
+            if (gridPrincipal.CurrentRow == null) return;
+            var conta = (Conta)gridPrincipal.CurrentRow.DataBoundItem;
         }
 
-        private void dtDataFinal_ValueChanged(object sender, EventArgs e)
+        private void btEfetivo_Click(object sender, EventArgs e)
         {
-            FiltrarConta();
-           
+            if (gridPrincipal.CurrentRow == null) return;
+            var conta = (Conta)gridPrincipal.CurrentRow.DataBoundItem;
         }
-
-      
     }
 }

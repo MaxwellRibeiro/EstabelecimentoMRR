@@ -7,11 +7,11 @@ namespace EstabelecimentoMRR.Repository
 {
     public class UsuarioRep
     {
-        public bool Login(string email, string senha)
+        public Usuario Login(string email, string senha)
         {
-            bool acesso = false;
+            Usuario usuario = null;
 
-            var sql = "SELECT COUNT(*) AS Acesso FROM usuario AS u WHERE u.Email = '" + email + "' AND senha = '" + senha + "'";
+            var sql = "SELECT * FROM usuario AS u WHERE u.Email = '" + email + "' AND senha = '" + senha + "'";
 
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
             MySqlCommand command = new MySqlCommand(sql, con);
@@ -19,14 +19,22 @@ namespace EstabelecimentoMRR.Repository
 
             MySqlDataReader reader = command.ExecuteReader();
 
+
             while (reader.Read())
             {
-                acesso = reader.GetInt32(reader.GetOrdinal("Acesso")) > 0;
+                usuario = new Usuario
+                {
+                    Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                    Nome = reader.GetString(reader.GetOrdinal("Nome")),
+                    Email = reader.GetString(reader.GetOrdinal("Email"))
+                };
+                break;
+
             }
             con.Dispose();
             con.Close();
 
-            return acesso;
+            return usuario;
         }
 
         public bool Inserir(Usuario usuario)

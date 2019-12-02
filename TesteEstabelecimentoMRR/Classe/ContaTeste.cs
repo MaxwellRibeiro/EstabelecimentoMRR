@@ -56,7 +56,7 @@ namespace TesteEstabelecimentoMRR.Classe
         public static IEnumerable<object[]> Data =>
             new List<object[]>
             {
-                new object[] { DadosConta.BaseDados1, 135 }
+                new object[] { DadosConta.BaseDados1, 140 }
             };
         //---------------------------------------------------------------------------------------------------------------//
     }
