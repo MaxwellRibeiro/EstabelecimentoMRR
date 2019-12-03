@@ -157,6 +157,8 @@ namespace EstabelecimentoMRR.UI.Principal
                 form = new FormCadastroConta(conta);
                 form.ShowDialog();
                 ListaTodasContas = CarregarContas();
+
+                AjustarInformacoesTodasContas();
                 FiltrarConta();
                 
             }
@@ -176,6 +178,8 @@ namespace EstabelecimentoMRR.UI.Principal
                             ContaRep rep = new ContaRep();
                             rep.Delete(conta);
                             ListaTodasContas = CarregarContas();
+
+                            AjustarInformacoesTodasContas();
                             FiltrarConta();
                             MessageBox.Show(@"Excluido com sucesso.", "Aviso");
 
@@ -194,6 +198,8 @@ namespace EstabelecimentoMRR.UI.Principal
             form = new FormCadastroConta(oj);
             form.ShowDialog();
             ListaTodasContas = CarregarContas();
+
+            AjustarInformacoesTodasContas();
             FiltrarConta();
         }
             
@@ -216,8 +222,9 @@ namespace EstabelecimentoMRR.UI.Principal
                     conta.Status = texto == "Quitar" ? Enum.Status.Quitada : Enum.Status.Recebido;
                     rep.Efetivar(conta);
                     ListaTodasContas = CarregarContas();
+
+                    AjustarInformacoesTodasContas();
                     FiltrarConta();
-                    CarregarImagensGrid();
                     MessageBox.Show(@"Efetivado com sucesso.", "Aviso");
 
                     
