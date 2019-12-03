@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Data;
 using EstabelecimentoMRR.Model;
 using MySql.Data.MySqlClient;
 
@@ -15,6 +16,40 @@ namespace EstabelecimentoMRR.Repository
             //var sql = "SELECT * FROM usuario AS u WHERE u.Email = " + email + " AND senha = " + senha;
             MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
             MySqlCommand command = new MySqlCommand(sql, con);
+            con.Open();
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                usuario = new Usuario
+                {
+                    Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                    Nome = reader.GetString(reader.GetOrdinal("Nome")),
+                    Email = reader.GetString(reader.GetOrdinal("Email"))
+                };
+                break;
+
+            }
+            con.Dispose();
+            con.Close();
+
+            return usuario;
+        }
+
+        public Usuario LoginSeguro(string email, string senha)
+        {
+            Usuario usuario = null;
+
+            var sql = "SELECT * FROM usuario AS u WHERE u.Email = @email AND senha = @senha";
+            MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(sql, con);
+            command.Parameters.Add("@email", MySqlDbType.VarChar);
+            command.Parameters.Add("@senha", MySqlDbType.VarChar);
+
+            command.Parameters["@email"].Value = email;
+            command.Parameters["@senha"].Value = senha;
             con.Open();
 
             MySqlDataReader reader = command.ExecuteReader();

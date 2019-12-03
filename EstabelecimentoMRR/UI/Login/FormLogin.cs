@@ -12,23 +12,10 @@ namespace EstabelecimentoMRR.UI.Login
         {
             InitializeComponent();
 
-            // Criando um material theme manager e adicionando o formulário
-            //MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
-            //materialSkinManager.AddFormToManage(this);
-            //materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            //// Definindo um esquema de Cor para formulário com tom Azul
-            //materialSkinManager.ColorScheme = new ColorScheme(
-            //    Primary.Red800,
-            //    Primary.Red900,
-            //    Primary.Red900,
-            //    Accent.Red700,
-            //    TextShade.WHITE
-            //);
-            // Criando um material theme manager e adicionando o formulário
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            // Configure color schema
+
             materialSkinManager.ColorScheme = new ColorScheme(
                 Primary.Green900, Primary.BlueGrey900,
                 Primary.BlueGrey500, Accent.Orange700,
@@ -52,6 +39,7 @@ namespace EstabelecimentoMRR.UI.Login
         {
             var rep = new UsuarioRep();
             var usuario = rep.Login(txtEmail.Text, txtSenha.Text);
+            //var usuario = rep.LoginSeguro(txtEmail.Text, txtSenha.Text);
             if (usuario != null)
             {
                 Session.Instance.IdUsuario = usuario.Id;

@@ -24,7 +24,7 @@ namespace TesteEstabelecimentoMRR.DadosParaTeste
             {
                 Id = 2,
                 Nome = "Luz",
-                TipoConta = TipoConta.Dispesa,
+                TipoConta = TipoConta.Despesa,
                 DataLancamento = new DateTime(2019,01,01),
                 DataVencimento = new DateTime(2019,02,05),
                 Valor = 150,
@@ -45,7 +45,7 @@ namespace TesteEstabelecimentoMRR.DadosParaTeste
             {
                 Id = 4,
                 Nome = "Conta Luz",
-                TipoConta = TipoConta.Dispesa,
+                TipoConta = TipoConta.Despesa,
                 DataLancamento = new DateTime(2019,02,01),
                 DataVencimento =  new DateTime(2019,03,01),
                 Valor = 90,
@@ -56,7 +56,7 @@ namespace TesteEstabelecimentoMRR.DadosParaTeste
             {
                 Id = 5,
                 Nome = "Manuntenção carro",
-                TipoConta = TipoConta.Dispesa,
+                TipoConta = TipoConta.Despesa,
                 DataLancamento = new DateTime(2019,02,01),
                 DataVencimento = new DateTime(2019,02,01),
                 Valor = 180,

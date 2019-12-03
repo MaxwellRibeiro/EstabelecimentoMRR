@@ -26,11 +26,15 @@ namespace EstabelecimentoMRR.UI.Principal
             dtDataFinal.Value = DateTime.Now.AddDays(15);
 
             ListaTodasContas = CarregarContas();
-            
+
+            AjustarInformacoesTodasContas();
+            FiltrarConta();
+        }
+
+        public void AjustarInformacoesTodasContas()
+        {
             lblSaldo.Text = ContaLogic.CalcularSaldo(ListaTodasContas).ToString();
             lblValorAPagarAtradado.Text = ContaLogic.CalcularValorAPagarAtradado(DateTime.Now, ListaTodasContas).ToString();
-
-            FiltrarConta();
         }
 
         public List<Conta> CarregarContas()
@@ -44,8 +48,8 @@ namespace EstabelecimentoMRR.UI.Principal
             if(ListaTodasContas == null) return;
 
             var listaFiltrada = ListaTodasContas.Where(l =>
-                    l.DataLancamento.Date >= dtDataInicial.Value.Date &&
-                    l.DataLancamento.Date <= dtDataFinal.Value.Date)
+                    l.DataVencimento.Date >= dtDataInicial.Value.Date &&
+                    l.DataVencimento.Date <= dtDataFinal.Value.Date)
                 .ToList();
 
             if (!ckEfetivo.Checked)

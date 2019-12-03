@@ -43,13 +43,15 @@
             this.rb_Receita = new System.Windows.Forms.RadioButton();
             this.lbl_Tipo = new MaterialSkin.Controls.MaterialLabel();
             this.btn_Alterar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btCancelar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
             // dtp_Data
             // 
-            this.dtp_Data.Location = new System.Drawing.Point(295, 321);
+            this.dtp_Data.Location = new System.Drawing.Point(221, 261);
+            this.dtp_Data.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtp_Data.Name = "dtp_Data";
-            this.dtp_Data.Size = new System.Drawing.Size(319, 22);
+            this.dtp_Data.Size = new System.Drawing.Size(240, 20);
             this.dtp_Data.TabIndex = 2;
             // 
             // lbl_Status
@@ -61,10 +63,11 @@
             this.lbl_Status.Depth = 0;
             this.lbl_Status.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Status.Location = new System.Drawing.Point(711, 252);
+            this.lbl_Status.Location = new System.Drawing.Point(533, 205);
+            this.lbl_Status.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Status.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Status.Name = "lbl_Status";
-            this.lbl_Status.Size = new System.Drawing.Size(68, 24);
+            this.lbl_Status.Size = new System.Drawing.Size(56, 19);
             this.lbl_Status.TabIndex = 48;
             this.lbl_Status.Text = "Status:";
             // 
@@ -73,13 +76,13 @@
             this.chk_Status.AutoSize = true;
             this.chk_Status.Depth = 0;
             this.chk_Status.Font = new System.Drawing.Font("Roboto", 10F);
-            this.chk_Status.Location = new System.Drawing.Point(782, 250);
+            this.chk_Status.Location = new System.Drawing.Point(586, 203);
             this.chk_Status.Margin = new System.Windows.Forms.Padding(0);
             this.chk_Status.MouseLocation = new System.Drawing.Point(-1, -1);
             this.chk_Status.MouseState = MaterialSkin.MouseState.HOVER;
             this.chk_Status.Name = "chk_Status";
             this.chk_Status.Ripple = true;
-            this.chk_Status.Size = new System.Drawing.Size(103, 30);
+            this.chk_Status.Size = new System.Drawing.Size(87, 30);
             this.chk_Status.TabIndex = 4;
             this.chk_Status.Text = "Recebido";
             this.chk_Status.UseVisualStyleBackColor = true;
@@ -91,14 +94,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_Descricao.Depth = 0;
             this.txt_Descricao.Hint = "";
-            this.txt_Descricao.Location = new System.Drawing.Point(295, 485);
+            this.txt_Descricao.Location = new System.Drawing.Point(221, 394);
+            this.txt_Descricao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_Descricao.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_Descricao.Name = "txt_Descricao";
             this.txt_Descricao.PasswordChar = '\0';
             this.txt_Descricao.SelectedText = "";
             this.txt_Descricao.SelectionLength = 0;
             this.txt_Descricao.SelectionStart = 0;
-            this.txt_Descricao.Size = new System.Drawing.Size(892, 28);
+            this.txt_Descricao.Size = new System.Drawing.Size(669, 23);
             this.txt_Descricao.TabIndex = 5;
             this.txt_Descricao.UseSystemPasswordChar = false;
             // 
@@ -111,10 +115,11 @@
             this.lbl_Descricao.Depth = 0;
             this.lbl_Descricao.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Descricao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Descricao.Location = new System.Drawing.Point(163, 485);
+            this.lbl_Descricao.Location = new System.Drawing.Point(122, 394);
+            this.lbl_Descricao.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Descricao.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Descricao.Name = "lbl_Descricao";
-            this.lbl_Descricao.Size = new System.Drawing.Size(94, 24);
+            this.lbl_Descricao.Size = new System.Drawing.Size(77, 19);
             this.lbl_Descricao.TabIndex = 47;
             this.lbl_Descricao.Text = "Descricao";
             // 
@@ -125,14 +130,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_Valor.Depth = 0;
             this.txt_Valor.Hint = "";
-            this.txt_Valor.Location = new System.Drawing.Point(295, 409);
+            this.txt_Valor.Location = new System.Drawing.Point(221, 332);
+            this.txt_Valor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_Valor.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_Valor.Name = "txt_Valor";
             this.txt_Valor.PasswordChar = '\0';
             this.txt_Valor.SelectedText = "";
             this.txt_Valor.SelectionLength = 0;
             this.txt_Valor.SelectionStart = 0;
-            this.txt_Valor.Size = new System.Drawing.Size(647, 28);
+            this.txt_Valor.Size = new System.Drawing.Size(485, 23);
             this.txt_Valor.TabIndex = 3;
             this.txt_Valor.UseSystemPasswordChar = false;
             // 
@@ -145,10 +151,11 @@
             this.lbl_Valor.Depth = 0;
             this.lbl_Valor.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Valor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Valor.Location = new System.Drawing.Point(207, 409);
+            this.lbl_Valor.Location = new System.Drawing.Point(155, 332);
+            this.lbl_Valor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Valor.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Valor.Name = "lbl_Valor";
-            this.lbl_Valor.Size = new System.Drawing.Size(59, 24);
+            this.lbl_Valor.Size = new System.Drawing.Size(49, 19);
             this.lbl_Valor.TabIndex = 46;
             this.lbl_Valor.Text = "Valor:";
             // 
@@ -161,10 +168,11 @@
             this.lbl_Data.Depth = 0;
             this.lbl_Data.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Data.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Data.Location = new System.Drawing.Point(107, 321);
+            this.lbl_Data.Location = new System.Drawing.Point(80, 261);
+            this.lbl_Data.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Data.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Data.Name = "lbl_Data";
-            this.lbl_Data.Size = new System.Drawing.Size(159, 24);
+            this.lbl_Data.Size = new System.Drawing.Size(129, 19);
             this.lbl_Data.TabIndex = 43;
             this.lbl_Data.Text = "Data Vencimento:";
             // 
@@ -175,14 +183,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_Nome_Conta.Depth = 0;
             this.txt_Nome_Conta.Hint = "";
-            this.txt_Nome_Conta.Location = new System.Drawing.Point(295, 171);
+            this.txt_Nome_Conta.Location = new System.Drawing.Point(221, 139);
+            this.txt_Nome_Conta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_Nome_Conta.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_Nome_Conta.Name = "txt_Nome_Conta";
             this.txt_Nome_Conta.PasswordChar = '\0';
             this.txt_Nome_Conta.SelectedText = "";
             this.txt_Nome_Conta.SelectionLength = 0;
             this.txt_Nome_Conta.SelectionStart = 0;
-            this.txt_Nome_Conta.Size = new System.Drawing.Size(647, 28);
+            this.txt_Nome_Conta.Size = new System.Drawing.Size(485, 23);
             this.txt_Nome_Conta.TabIndex = 1;
             this.txt_Nome_Conta.UseSystemPasswordChar = false;
             // 
@@ -195,10 +204,11 @@
             this.lbl_Nome_Conta.Depth = 0;
             this.lbl_Nome_Conta.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Nome_Conta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Nome_Conta.Location = new System.Drawing.Point(119, 171);
+            this.lbl_Nome_Conta.Location = new System.Drawing.Point(89, 139);
+            this.lbl_Nome_Conta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Nome_Conta.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Nome_Conta.Name = "lbl_Nome_Conta";
-            this.lbl_Nome_Conta.Size = new System.Drawing.Size(147, 24);
+            this.lbl_Nome_Conta.Size = new System.Drawing.Size(118, 19);
             this.lbl_Nome_Conta.TabIndex = 41;
             this.lbl_Nome_Conta.Text = "Nome da Conta:";
             // 
@@ -207,11 +217,12 @@
             this.btn_Cadastrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Cadastrar.Depth = 0;
-            this.btn_Cadastrar.Location = new System.Drawing.Point(432, 555);
+            this.btn_Cadastrar.Location = new System.Drawing.Point(505, 451);
+            this.btn_Cadastrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Cadastrar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_Cadastrar.Name = "btn_Cadastrar";
             this.btn_Cadastrar.Primary = true;
-            this.btn_Cadastrar.Size = new System.Drawing.Size(453, 50);
+            this.btn_Cadastrar.Size = new System.Drawing.Size(340, 41);
             this.btn_Cadastrar.TabIndex = 6;
             this.btn_Cadastrar.Text = "Cadastrar";
             this.btn_Cadastrar.UseVisualStyleBackColor = true;
@@ -220,9 +231,10 @@
             // rb_Despesa
             // 
             this.rb_Despesa.AutoSize = true;
-            this.rb_Despesa.Location = new System.Drawing.Point(302, 255);
+            this.rb_Despesa.Location = new System.Drawing.Point(226, 207);
+            this.rb_Despesa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rb_Despesa.Name = "rb_Despesa";
-            this.rb_Despesa.Size = new System.Drawing.Size(80, 21);
+            this.rb_Despesa.Size = new System.Drawing.Size(63, 17);
             this.rb_Despesa.TabIndex = 49;
             this.rb_Despesa.TabStop = true;
             this.rb_Despesa.Text = "A Pagar";
@@ -232,9 +244,10 @@
             // rb_Receita
             // 
             this.rb_Receita.AutoSize = true;
-            this.rb_Receita.Location = new System.Drawing.Point(460, 255);
+            this.rb_Receita.Location = new System.Drawing.Point(345, 207);
+            this.rb_Receita.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rb_Receita.Name = "rb_Receita";
-            this.rb_Receita.Size = new System.Drawing.Size(96, 21);
+            this.rb_Receita.Size = new System.Drawing.Size(76, 17);
             this.rb_Receita.TabIndex = 50;
             this.rb_Receita.TabStop = true;
             this.rb_Receita.Text = "A Receber";
@@ -250,10 +263,11 @@
             this.lbl_Tipo.Depth = 0;
             this.lbl_Tipo.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Tipo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Tipo.Location = new System.Drawing.Point(133, 250);
+            this.lbl_Tipo.Location = new System.Drawing.Point(100, 203);
+            this.lbl_Tipo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Tipo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Tipo.Name = "lbl_Tipo";
-            this.lbl_Tipo.Size = new System.Drawing.Size(133, 24);
+            this.lbl_Tipo.Size = new System.Drawing.Size(107, 19);
             this.lbl_Tipo.TabIndex = 51;
             this.lbl_Tipo.Text = "Tipo da Conta:";
             // 
@@ -262,22 +276,41 @@
             this.btn_Alterar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Alterar.Depth = 0;
-            this.btn_Alterar.Location = new System.Drawing.Point(432, 555);
+            this.btn_Alterar.Location = new System.Drawing.Point(505, 451);
+            this.btn_Alterar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Alterar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_Alterar.Name = "btn_Alterar";
             this.btn_Alterar.Primary = true;
-            this.btn_Alterar.Size = new System.Drawing.Size(453, 50);
+            this.btn_Alterar.Size = new System.Drawing.Size(340, 41);
             this.btn_Alterar.TabIndex = 52;
             this.btn_Alterar.Text = "Alterar";
             this.btn_Alterar.UseVisualStyleBackColor = true;
             this.btn_Alterar.Click += new System.EventHandler(this.btn_Alterar_Click);
             // 
+            // btCancelar
+            // 
+            this.btCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btCancelar.Depth = 0;
+            this.btCancelar.Location = new System.Drawing.Point(159, 451);
+            this.btCancelar.Margin = new System.Windows.Forms.Padding(2);
+            this.btCancelar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btCancelar.Name = "btCancelar";
+            this.btCancelar.Primary = true;
+            this.btCancelar.Size = new System.Drawing.Size(340, 41);
+            this.btCancelar.TabIndex = 53;
+            this.btCancelar.Text = "Cancelar / Sair";
+            this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
+            // 
             // FormCadastroConta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1289, 646);
+            this.ClientSize = new System.Drawing.Size(967, 525);
+            this.ControlBox = false;
+            this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btn_Alterar);
             this.Controls.Add(this.lbl_Tipo);
             this.Controls.Add(this.rb_Receita);
@@ -293,6 +326,8 @@
             this.Controls.Add(this.txt_Nome_Conta);
             this.Controls.Add(this.lbl_Nome_Conta);
             this.Controls.Add(this.btn_Cadastrar);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "FormCadastroConta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Conta";
@@ -318,5 +353,6 @@
         private System.Windows.Forms.RadioButton rb_Receita;
         private MaterialSkin.Controls.MaterialLabel lbl_Tipo;
         private MaterialSkin.Controls.MaterialRaisedButton btn_Alterar;
+        private MaterialSkin.Controls.MaterialRaisedButton btCancelar;
     }
 }
