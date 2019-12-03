@@ -126,7 +126,7 @@ namespace EstabelecimentoMRR.UI.renee
             _fluxocaixa.DataVencimento = dtp_Data.Value;            
             _fluxocaixa.Descricao = txt_Descricao.Text;            
 
-            if (_rep.Update(_fluxocaixa))            
+            if (_rep.UpdateSeguro(_fluxocaixa))            
                 MessageBox.Show("ALTERADO COM SUCESSO");            
             else            
                 MessageBox.Show("Erro ao Salvar, tente novamente");            

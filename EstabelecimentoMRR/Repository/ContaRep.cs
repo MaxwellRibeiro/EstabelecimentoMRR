@@ -17,9 +17,9 @@ namespace EstabelecimentoMRR.Repository
 
         public bool Insert(Conta _fluxocaixa)
         {        
-            var sql = "insert into conta(Nome, TipoConta, DataLancamento, DataVencimento, Valor, Status, Descricao, idUsuario) " +
+            var sql = "insert into conta(Nome, TipoConta, DataLancamento, DataVencimento, Valor, Status, idUsuario, Descricao) " +
                 "values('"+ _fluxocaixa.Nome + "', " + (int)_fluxocaixa.TipoConta + ", '" + _fluxocaixa.DataLancamento.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + _fluxocaixa.DataVencimento.ToString("yyyy-MM-dd HH:mm:ss") + "'," +
-                " " + _fluxocaixa.Valor + ", " + (int)_fluxocaixa.Status + ", '" + _fluxocaixa.Descricao + "', " + _fluxocaixa.IdUsuario + ")";
+                " " + _fluxocaixa.Valor + ", " + (int)_fluxocaixa.Status + ", " + _fluxocaixa.IdUsuario + " '" + _fluxocaixa.Descricao + "')";
   
 
 
@@ -51,6 +51,33 @@ namespace EstabelecimentoMRR.Repository
 
             con.Dispose();
             con.Close();
+
+            return true;
+        }
+
+        public bool UpdateSeguro(Conta _fluxocaixa)
+        {
+            var sql = "update conta set Nome = @nome, DataVencimento = '" +
+                _fluxocaixa.DataVencimento.ToString("yyyy-MM-dd HH:mm:ss") + "', Descricao= @desc where Id= @id";
+                                   
+           
+            MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(sql, con);
+            command.Parameters.Add("@nome", MySqlDbType.VarChar);
+            command.Parameters.Add("@desc", MySqlDbType.VarChar);
+            command.Parameters.Add("@id", MySqlDbType.Int32);
+
+            command.Parameters["@nome"].Value = _fluxocaixa.Nome;
+            command.Parameters["@desc"].Value = _fluxocaixa.Descricao;
+            command.Parameters["@id"].Value = _fluxocaixa.Id;
+            con.Open();
+
+            _fluxocaixa.Id = Convert.ToInt32(command.ExecuteScalar());
+
+
+            con.Dispose();
+            con.Close();
+
 
             return true;
         }
