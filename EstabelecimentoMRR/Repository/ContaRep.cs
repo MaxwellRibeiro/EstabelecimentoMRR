@@ -19,7 +19,7 @@ namespace EstabelecimentoMRR.Repository
         {        
             var sql = "insert into conta(Nome, TipoConta, DataLancamento, DataVencimento, Valor, Status, idUsuario, Descricao) " +
                 "values('"+ _fluxocaixa.Nome + "', " + (int)_fluxocaixa.TipoConta + ", '" + _fluxocaixa.DataLancamento.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + _fluxocaixa.DataVencimento.ToString("yyyy-MM-dd HH:mm:ss") + "'," +
-                " " + _fluxocaixa.Valor + ", " + (int)_fluxocaixa.Status + ", " + _fluxocaixa.IdUsuario + " '" + _fluxocaixa.Descricao + "')";
+                " " + _fluxocaixa.Valor + ", " + (int)_fluxocaixa.Status + ", " + _fluxocaixa.IdUsuario + ", '" + _fluxocaixa.Descricao + "')";
   
 
 

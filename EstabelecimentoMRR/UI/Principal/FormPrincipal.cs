@@ -33,8 +33,8 @@ namespace EstabelecimentoMRR.UI.Principal
 
         public void AjustarInformacoesTodasContas()
         {
-            lblSaldo.Text = ContaLogic.CalcularSaldo(ListaTodasContas).ToString();
-            lblValorAPagarAtradado.Text = ContaLogic.CalcularValorAPagarAtradado(DateTime.Now, ListaTodasContas).ToString();
+            lblSaldo.Text = Math.Round(ContaLogic.CalcularSaldo(ListaTodasContas),2).ToString();
+            lblValorAPagarAtradado.Text = Math.Round(ContaLogic.CalcularValorAPagarAtradado(DateTime.Now, ListaTodasContas),2).ToString();
         }
 
         public List<Conta> CarregarContas()
@@ -71,9 +71,9 @@ namespace EstabelecimentoMRR.UI.Principal
 
             gridPrincipal.DataSource = listaFiltrada;
 
-            lblValorAPagar.Text = ContaLogic.CalcularValorAPagar(listaFiltrada).ToString();
-            lblValorAReceber.Text = ContaLogic.CalcularValorAReceber(listaFiltrada).ToString();
-            lblGastoMedio.Text = ContaLogic.CalcularGastoMedio(listaFiltrada).ToString();
+            lblValorAPagar.Text = Math.Round(ContaLogic.CalcularValorAPagar(listaFiltrada),2).ToString();
+            lblValorAReceber.Text = Math.Round(ContaLogic.CalcularValorAReceber(listaFiltrada),2).ToString();
+            lblGastoMedio.Text = Math.Round(ContaLogic.CalcularGastoMedio(listaFiltrada),2).ToString();
 
             CarregarImagensGrid();
         }
