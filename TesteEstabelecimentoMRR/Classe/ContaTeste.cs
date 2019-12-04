@@ -20,7 +20,7 @@ namespace TesteEstabelecimentoMRR.Classe
         }
 
         [Fact]
-        public void TestarCalculoValorARecebero()
+        public void TestarCalculoValorAReceber()
         {
             List<Conta> contas = DadosConta.BaseDados1;
 
@@ -56,7 +56,8 @@ namespace TesteEstabelecimentoMRR.Classe
         public static IEnumerable<object[]> Data =>
             new List<object[]>
             {
-                new object[] { DadosConta.BaseDados1, 140 }
+                new object[] { DadosConta.BaseDados1, 140 },
+                new object[] { DadosConta.BaseDados2, 150 }
             };
         //---------------------------------------------------------------------------------------------------------------//
     }

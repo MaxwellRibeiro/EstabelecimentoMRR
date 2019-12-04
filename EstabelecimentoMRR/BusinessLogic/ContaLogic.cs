@@ -11,7 +11,7 @@ namespace EstabelecimentoMRR.BusinessLogic
         public static decimal CalcularSaldo(List<Conta> contas)
         {
             decimal saldo = 0;
-            var contasEfetivas = contas.Where(c => c.Status == Status.Quitada).ToList();
+            var contasEfetivas = contas.Where(c => c.Status != Status.Pendente).ToList();
 
             foreach (var conta in contasEfetivas)
             {
