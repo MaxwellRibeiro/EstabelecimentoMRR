@@ -52,6 +52,7 @@ namespace EstabelecimentoMRR.Repository
             command.Parameters["@senha"].Value = senha;
             con.Open();
 
+
             MySqlDataReader reader = command.ExecuteReader();
 
 
